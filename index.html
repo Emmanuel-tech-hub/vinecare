@@ -1,1100 +1,1102 @@
-● <!DOCTYPE html>
-  <html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VineCare — AI Follow-Up for Churches & NGOs</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family
-  =Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              cream: '#F9F7F2',
-              ink: '#1C1C1C',
-              vine: '#2D4030',
-              'vine-light': '#3D5542',
-              'vine-pale': '#EEF2EC',
-            },
-            fontFamily: {
-              serif: ['Playfair Display', 'Georgia', 'serif'],
-              sans: ['Inter', 'system-ui', 'sans-serif'],
-            },
-            borderRadius: {
-              '4xl': '2rem',
-              '5xl': '2.5rem',
-            },
-            boxShadow: {
-              'soft': '0 4px 32px 0 rgba(28,28,28,0.06)',
-              'card': '0 8px 48px 0 rgba(28,28,28,0.08)',
-              'deep': '0 16px 64px 0 rgba(28,28,28,0.12)',
-            },
-          }
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VineCare — Sarah AI: Proactive Voice Calls for Churches & NGOs</title>
+  <meta name="description" content="Sarah automatically calls every church member before every program. Built exclusively for faith communities. Never lose a member to silence again." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#F9F7F2',
+            ink: '#1C1C1C',
+            vine: '#2D4030',
+            'vine-light': '#3D5542',
+            'vine-pale': '#EEF2EC',
+            'vine-bright': '#4A7C59',
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
         }
       }
-    </script>
-    <style>
-      * { box-sizing: border-box; }
-      html { background: #F9F7F2; }
-      body { font-family: 'Inter', system-ui, sans-serif; color: #1C1C1C; background: #F9F7F2; }
-      .font-serif { font-family: 'Playfair Display', Georgia, serif; }
+    }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { background: #F9F7F2; scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: #1C1C1C; background: #F9F7F2; -webkit-font-smoothing: antialiased; }
 
-      /* Sticky header blur */
-      #navbar {
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-      }
+    /* ===== ANIMATIONS ===== */
+    @keyframes float-a {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      40% { transform: translateY(-14px) rotate(0.6deg); }
+      70% { transform: translateY(-6px) rotate(-0.4deg); }
+    }
+    @keyframes float-b {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes float-c {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      35% { transform: translateY(-8px) rotate(-0.5deg); }
+      65% { transform: translateY(-16px) rotate(0.5deg); }
+    }
+    @keyframes pulse-ring {
+      0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(45,64,48,0.5); }
+      70% { transform: scale(1); box-shadow: 0 0 0 14px rgba(45,64,48,0); }
+      100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(45,64,48,0); }
+    }
+    @keyframes slide-in {
+      from { opacity: 0; transform: translateX(30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes blink-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.25; }
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes progress-fill {
+      from { width: 0%; }
+      to { width: var(--target-width); }
+    }
 
-      /* Smooth section fade */
-      .fade-section {
-        opacity: 0;
-        transform: translateY(28px);
-        transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
-      }
-      .fade-section.visible {
-        opacity: 1;
-        transform: none;
-      }
+    .float-1 { animation: float-a 7s ease-in-out infinite; }
+    .float-2 { animation: float-b 9s ease-in-out infinite 1.5s; }
+    .float-3 { animation: float-c 6s ease-in-out infinite 0.8s; }
+    .pulse-anim { animation: pulse-ring 2.5s ease-out infinite; }
+    .blink { animation: blink-dot 2s ease-in-out infinite; }
+    .spin { animation: spin 1s linear infinite; }
 
-      /* Gradient text */
-      .gradient-text {
-        background: linear-gradient(135deg, #2D4030 0%, #4A6B4F 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
+    /* ===== FADE ON SCROLL ===== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.85s cubic-bezier(.22,1,.36,1), transform 0.85s cubic-bezier(.22,1,.36,1);
+    }
+    .fade-up.visible { opacity: 1; transform: none; }
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.22s; }
+    .delay-3 { transition-delay: 0.34s; }
 
-      /* Card hover lift */
-      .card-lift {
-        transition: transform 0.3s cubic-bezier(.4,0,.2,1), box-shadow 0.3s cubic-bezier(.4,0,.2,1);
-      }
-      .card-lift:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 20px 64px 0 rgba(28,28,28,0.13);
-      }
+    /* ===== NAVBAR ===== */
+    #navbar {
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+    }
 
-      /* Vine dot accent */
-      .vine-dot::before {
-        content: '';
-        display: inline-block;
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: #2D4030;
-        margin-right: 10px;
-        flex-shrink: 0;
-      }
+    /* ===== HERO ===== */
+    .hero-bg {
+      background:
+        radial-gradient(ellipse 55% 70% at 10% 50%, rgba(45,64,48,0.08) 0%, transparent 55%),
+        radial-gradient(ellipse 45% 45% at 90% 15%, rgba(74,124,89,0.05) 0%, transparent 50%),
+        #F9F7F2;
+    }
+    .dot-grid::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(45,64,48,0.18) 1.5px, transparent 1.5px);
+      background-size: 30px 30px;
+      pointer-events: none;
+    }
 
-      /* Input focus */
-      input:focus, select:focus {
-        outline: none;
-        box-shadow: 0 0 0 3px rgba(45,64,48,0.18);
-      }
+    /* ===== GRADIENT TEXT ===== */
+    .gradient-text {
+      background: linear-gradient(135deg, #1a2b1c 0%, #2D4030 45%, #4A7C59 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
-      /* Mobile menu */
-      #mobile-menu { transition: max-height 0.35s ease, opacity 0.35s ease; max-height: 0; opacity: 0; overflow: hidden;
-   }
-      #mobile-menu.open { max-height: 400px; opacity: 1; }
+    /* ===== NOTIFICATION CARDS ===== */
+    .notif-card {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(255,255,255,0.95);
+      border: 1px solid rgba(45,64,48,0.1);
+      box-shadow: 0 10px 40px rgba(28,28,28,0.12), 0 1px 0 rgba(255,255,255,0.9) inset;
+    }
 
-      /* Success modal */
-      #success-modal {
-        transition: opacity 0.4s ease;
-      }
+    /* ===== PROBLEM SECTION ===== */
+    .dark-bg {
+      background: linear-gradient(155deg, #0f1a10 0%, #192b1b 35%, #2D4030 70%, #192b1b 100%);
+    }
 
-      /* Subtle hero grain */
-      .hero-bg {
-        background:
-          radial-gradient(ellipse 80% 60% at 50% 0%, rgba(45,64,48,0.07) 0%, transparent 70%),
-          #F9F7F2;
-      }
+    /* ===== CARD LIFT ===== */
+    .card-lift {
+      transition: transform 0.35s cubic-bezier(.22,1,.36,1), box-shadow 0.35s cubic-bezier(.22,1,.36,1);
+    }
+    .card-lift:hover { transform: translateY(-8px); box-shadow: 0 28px 80px rgba(28,28,28,0.15); }
 
-      /* Quote mark */
-      .quote::before {
-        content: '\201C';
-        font-family: 'Playfair Display', Georgia, serif;
-        font-size: 5rem;
-        line-height: 1;
-        color: #2D4030;
-        opacity: 0.18;
-        position: absolute;
-        top: 0.5rem;
-        left: 1.5rem;
-      }
+    /* ===== DIVIDER ===== */
+    .vine-divider {
+      width: 44px; height: 3px;
+      background: linear-gradient(90deg, #2D4030, #4A7C59);
+      border-radius: 999px;
+      margin: 0 auto 1.25rem;
+    }
 
-      /* Divider */
-      .vine-divider {
-        width: 48px;
-        height: 3px;
-        background: linear-gradient(90deg, #2D4030, #4A6B4F);
-        border-radius: 999px;
-        margin: 0 auto 2rem;
-      }
+    /* ===== SECTION LABEL ===== */
+    .s-label {
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase; color: #2D4030;
+    }
 
-      /* FAQ accordion */
-      .faq-answer {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease, opacity 0.3s ease;
-        opacity: 0;
-      }
-      .faq-answer.open {
-        max-height: 300px;
-        opacity: 1;
-      }
-      .faq-icon {
-        transition: transform 0.3s ease;
-      }
-      .faq-item.open .faq-icon {
-        transform: rotate(45deg);
-      }
-    </style>
-  </head>
+    /* ===== STEP NUMBER ===== */
+    .step-num {
+      width: 50px; height: 50px;
+      background: linear-gradient(135deg, #2D4030, #4A7C59);
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 700; color: white;
+      flex-shrink: 0;
+      box-shadow: 0 8px 24px rgba(45,64,48,0.35);
+    }
 
-  <body class="antialiased">
+    /* ===== FACE RING ===== */
+    .face-ring {
+      border: 3px solid rgba(45,64,48,0.18);
+      box-shadow: 0 4px 16px rgba(45,64,48,0.15);
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
 
-  <!-- ===========================
-       STICKY HEADER
-  =========================== -->
-  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-[#F9F7F2]/90 border-b border-black/[0.05]">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <!-- Logo -->
-      <a href="#" class="flex items-center gap-2.5 group">
-        <div class="w-8 h-8 rounded-xl bg-vine flex items-center justify-center flex-shrink-0">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 2C5.2 2 3 4.2 3 7c0 1.8.9 3.4 2.3 4.4L8 14l2.7-2.6C12.1 10.4 13 8.8 13 7c0-2.8-2.2-5-5-5z"
-  fill="white" fill-opacity="0.9"/>
-            <circle cx="8" cy="7" r="2" fill="#2D4030"/>
-          </svg>
-        </div>
-        <span class="font-serif font-semibold text-xl text-ink tracking-tight">VineCare</span>
-      </a>
+    /* ===== FAQ ===== */
+    .faq-answer {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.45s cubic-bezier(.22,1,.36,1), opacity 0.3s ease;
+      opacity: 0;
+    }
+    .faq-answer.open { max-height: 320px; opacity: 1; }
+    .faq-icon { transition: transform 0.3s ease; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
 
-      <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-8">
-        <a href="#problem" class="text-sm font-medium text-ink/60 hover:text-vine transition-colors duration-200">The
-  Problem</a>
-        <a href="#system" class="text-sm font-medium text-ink/60 hover:text-vine transition-colors duration-200">How It
-  Works</a>
-        <a href="#why" class="text-sm font-medium text-ink/60 hover:text-vine transition-colors duration-200">Why
-  VineCare</a>
-        <a href="#testimonials" class="text-sm font-medium text-ink/60 hover:text-vine transition-colors
-  duration-200">Stories</a>
-        <a href="#faq" class="text-sm font-medium text-ink/60 hover:text-vine transition-colors duration-200">FAQ</a>
-      </nav>
+    /* ===== MOBILE MENU ===== */
+    #mobile-menu {
+      transition: max-height 0.35s ease, opacity 0.35s ease;
+      max-height: 0; opacity: 0; overflow: hidden;
+    }
+    #mobile-menu.open { max-height: 500px; opacity: 1; }
 
-      <!-- Desktop CTA -->
-      <div class="hidden md:flex">
-        <a href="#booking" class="bg-vine text-white text-sm font-semibold px-5 py-2.5 rounded-2xl hover:bg-vine-light
-  transition-colors duration-200 shadow-sm">
-          Book a 5-Min Call
-        </a>
-      </div>
+    /* ===== FORM ===== */
+    .vine-input {
+      background: #F9F7F2;
+      border: 1.5px solid rgba(28,28,28,0.12);
+      border-radius: 10px;
+      padding: 10px 13px;
+      font-size: 0.8rem;
+      color: #1C1C1C;
+      width: 100%;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .vine-input::placeholder { color: rgba(28,28,28,0.35); }
+    .vine-input:focus {
+      outline: none;
+      border-color: #2D4030;
+      box-shadow: 0 0 0 3px rgba(45,64,48,0.15);
+    }
 
-      <!-- Mobile hamburger -->
-      <button id="menu-toggle" class="md:hidden p-2 rounded-xl hover:bg-vine/10 transition-colors" aria-label="Toggle
-  menu">
-        <svg id="menu-icon" width="22" height="22" viewBox="0 0 22 22" fill="none">
-          <path d="M3 6h16M3 11h16M3 16h16" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round"/>
+    /* ===== MODAL ===== */
+    #success-modal { transition: opacity 0.35s ease; }
+  </style>
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-[#F9F7F2]/88 border-b border-black/[0.06]">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+
+    <a href="index.html" class="flex items-center gap-2.5">
+      <div class="w-9 h-9 rounded-xl bg-vine flex items-center justify-center flex-shrink-0 shadow-sm">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M9 2C6 2 3.5 4.5 3.5 7.5c0 2 1 3.8 2.5 4.9L9 15.5l3-3.1C13.5 11.3 14.5 9.5 14.5 7.5 14.5 4.5 12 2 9 2z" fill="white" fill-opacity="0.92"/>
+          <circle cx="9" cy="7.5" r="2.2" fill="#2D4030"/>
         </svg>
-      </button>
+      </div>
+      <span style="font-family:'Playfair Display',serif;" class="font-bold text-xl text-ink tracking-tight">VineCare</span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-7">
+      <a href="#problem"      class="text-sm font-medium text-ink/65 hover:text-vine transition-colors">The Problem</a>
+      <a href="#how-it-works" class="text-sm font-medium text-ink/65 hover:text-vine transition-colors">How It Works</a>
+      <a href="#why"          class="text-sm font-medium text-ink/65 hover:text-vine transition-colors">Why VineCare</a>
+      <a href="#stories"      class="text-sm font-medium text-ink/65 hover:text-vine transition-colors">Stories</a>
+      <a href="pricing.html"  class="text-sm font-medium text-ink/65 hover:text-vine transition-colors">Pricing</a>
+      <a href="#faq"          class="text-sm font-medium text-ink/65 hover:text-vine transition-colors">FAQ</a>
+    </nav>
+
+    <div class="hidden md:flex">
+      <a href="#booking" class="bg-vine text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-vine-light transition-all shadow-sm hover:-translate-y-0.5">
+        Book a 5-Min Call
+      </a>
     </div>
 
-    <!-- Mobile menu -->
-    <div id="mobile-menu" class="md:hidden border-t border-black/[0.05] bg-[#F9F7F2]/95">
-      <nav class="flex flex-col px-6 py-4 gap-4">
-        <a href="#problem" class="mobile-link text-base font-medium text-ink/70 hover:text-vine transition-colors">The
-  Problem</a>
-        <a href="#system" class="mobile-link text-base font-medium text-ink/70 hover:text-vine transition-colors">How It
-   Works</a>
-        <a href="#why" class="mobile-link text-base font-medium text-ink/70 hover:text-vine transition-colors">Why
-  VineCare</a>
-        <a href="#testimonials" class="mobile-link text-base font-medium text-ink/70 hover:text-vine
-  transition-colors">Stories</a>
-        <a href="#faq" class="mobile-link text-base font-medium text-ink/70 hover:text-vine transition-colors">FAQ</a>
-        <a href="#booking" class="mobile-link mt-2 bg-vine text-white text-center font-semibold px-5 py-3 rounded-2xl
-  hover:bg-vine-light transition-colors">Book a 5-Min Call</a>
-      </nav>
-    </div>
-  </header>
+    <button id="menu-toggle" class="md:hidden p-2 rounded-xl hover:bg-vine/10 transition-colors">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <path d="M3 6h16M3 11h16M3 16h16" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="md:hidden border-t border-black/[0.06] bg-[#F9F7F2]/96">
+    <nav class="flex flex-col px-6 py-5 gap-4">
+      <a href="#problem"      class="mobile-link text-sm font-medium text-ink/70 hover:text-vine">The Problem</a>
+      <a href="#how-it-works" class="mobile-link text-sm font-medium text-ink/70 hover:text-vine">How It Works</a>
+      <a href="#why"          class="mobile-link text-sm font-medium text-ink/70 hover:text-vine">Why VineCare</a>
+      <a href="#stories"      class="mobile-link text-sm font-medium text-ink/70 hover:text-vine">Stories</a>
+      <a href="pricing.html"  class="mobile-link text-sm font-medium text-ink/70 hover:text-vine">Pricing</a>
+      <a href="#faq"          class="mobile-link text-sm font-medium text-ink/70 hover:text-vine">FAQ</a>
+      <a href="#booking"      class="mobile-link mt-1 bg-vine text-white text-center font-semibold px-5 py-3 rounded-xl hover:bg-vine-light transition-colors">Book a 5-Min Call</a>
+    </nav>
+  </div>
+</header>
 
 
-  <!-- ===========================
-       HERO SECTION
-  =========================== -->
-  <section class="hero-bg pt-32 pb-28 md:pt-40 md:pb-36 px-6 text-center relative overflow-hidden">
+<!-- ===================== HERO ===================== -->
+<section class="hero-bg dot-grid relative pt-28 pb-24 md:pt-40 md:pb-36 px-6 overflow-hidden">
 
-    <!-- Decorative ring -->
-    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full border border-vine/10
-  pointer-events-none"></div>
-    <div class="absolute -top-20 left-1/2 -translate-x-1/2 w-[400px] h-[400px] rounded-full border border-vine/07
-  pointer-events-none"></div>
+  <!-- Faint decorative rings -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full border border-vine/[0.05] pointer-events-none"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-vine/[0.07] pointer-events-none"></div>
 
-    <div class="max-w-4xl mx-auto relative z-10 fade-section">
+  <div class="max-w-6xl mx-auto relative z-10">
+    <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-      <!-- Badge -->
-      <div class="inline-flex items-center gap-2 bg-vine/10 text-vine text-xs font-semibold tracking-widest uppercase
-  px-4 py-2 rounded-full mb-8 border border-vine/20">
-        <span class="w-1.5 h-1.5 rounded-full bg-vine flex-shrink-0 animate-pulse"></span>
-        AI Follow-Up for Churches & NGOs
-      </div>
+      <!-- LEFT TEXT -->
+      <div class="fade-up">
+        <!-- Live badge -->
+        <div class="inline-flex items-center gap-2.5 bg-vine/10 border border-vine/20 text-vine text-xs font-bold px-4 py-2 rounded-full mb-8 tracking-wide">
+          <span class="relative flex-shrink-0 w-2 h-2">
+            <span class="absolute inset-0 rounded-full bg-vine/40 pulse-anim"></span>
+            <span class="relative block w-2 h-2 rounded-full bg-vine blink"></span>
+          </span>
+          Sarah is active at 40+ churches right now
+        </div>
 
-      <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-ink leading-[1.1] tracking-tight mb-8">
-        Every call is a person.<br/>
-        <em class="italic text-vine">Don't let them drift away.</em>
-      </h1>
+        <!-- Main hook headline -->
+        <h1 style="font-family:'Playfair Display',serif;" class="text-5xl md:text-6xl lg:text-[3.8rem] font-bold text-ink leading-[1.07] tracking-tight mb-6">
+          Your Members Are<br/>
+          Waiting For Someone<br/>
+          <em class="italic gradient-text">To Call.</em><br/>
+          Sarah Already Did.
+        </h1>
 
-      <p class="text-lg md:text-xl text-ink/60 font-light leading-relaxed max-w-2xl mx-auto mb-12">
-        Churches and NGOs thrive on connection. When people reach out, VineCare ensures someone is always there to
-  respond — automatically, consistently, and with care.
-      </p>
+        <p class="text-base md:text-lg text-ink/75 leading-relaxed font-normal mb-10 max-w-lg">
+          Sarah is a proactive AI voice agent built exclusively for churches and NGOs. She automatically calls every member — by name, with warmth — before every program. Your community stays connected. Your events stay full. No one drifts away in silence.
+        </p>
 
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#booking" class="w-full sm:w-auto bg-vine text-white font-semibold text-base px-8 py-4 rounded-2xl
-  hover:bg-vine-light transition-all duration-200 shadow-deep hover:shadow-none hover:-translate-y-0.5">
-          Book a 5-Minute Call
-        </a>
-        <a href="#system" class="w-full sm:w-auto flex items-center justify-center gap-2 text-ink/60 font-medium
-  text-base hover:text-vine transition-colors px-6 py-4">
-          See how it works
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3l5 5-5 5M3 8h10"
-  stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-
-      <!-- Social proof bar -->
-      <div class="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-ink/40 font-medium">
-        <span class="flex items-center gap-2">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1l1.9 3.8L14 5.7l-3 2.9.7 4.1L8
-  10.5l-3.7 2.2.7-4.1-3-2.9 4.1-.9L8 1z" fill="#2D4030" fill-opacity="0.5"/></svg>
-          Trusted by 40+ churches
-        </span>
-        <span class="w-1 h-1 rounded-full bg-ink/20 hidden sm:block"></span>
-        <span class="flex items-center gap-2">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1l1.9 3.8L14 5.7l-3 2.9.7 4.1L8
-  10.5l-3.7 2.2.7-4.1-3-2.9 4.1-.9L8 1z" fill="#2D4030" fill-opacity="0.5"/></svg>
-          &lt; 30-second response time
-        </span>
-        <span class="w-1 h-1 rounded-full bg-ink/20 hidden sm:block"></span>
-        <span class="flex items-center gap-2">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1l1.9 3.8L14 5.7l-3 2.9.7 4.1L8
-  10.5l-3.7 2.2.7-4.1-3-2.9 4.1-.9L8 1z" fill="#2D4030" fill-opacity="0.5"/></svg>
-          GDPR-ready & secure
-        </span>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ===========================
-       THE PROBLEM SECTION
-  =========================== -->
-  <section id="problem" class="py-24 md:py-32 px-6 bg-white">
-    <div class="max-w-6xl mx-auto">
-
-      <div class="text-center mb-16 fade-section">
-        <div class="vine-divider"></div>
-        <p class="text-vine font-semibold tracking-widest text-xs uppercase mb-4">The Challenge</p>
-        <h2 class="font-serif text-4xl md:text-5xl font-bold text-ink leading-tight">
-          The burden of the<br/><em class="italic">missed connection</em>
-        </h2>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-
-        <!-- Left: Emotional narrative -->
-        <div class="fade-section space-y-6">
-          <p class="text-lg text-ink/70 leading-relaxed font-light">
-            Someone texts your church on a Tuesday night. They're going through a difficult season — lonely, searching,
-  hoping for connection. They reach out because they had the courage to.
-          </p>
-          <p class="text-lg text-ink/70 leading-relaxed font-light">
-            But your volunteer coordinator is already stretched across three other conversations. Your admin sees it
-  Wednesday afternoon. By then, the moment has passed.
-          </p>
-          <p class="text-lg text-ink/70 leading-relaxed font-light font-medium text-ink/80">
-            They don't come back. Not because they weren't welcomed — but because no one responded in time.
-          </p>
-          <a href="#booking" class="inline-flex items-center gap-2 text-vine font-semibold hover:underline
-  underline-offset-4 text-sm mt-2">
-            Change this for your community
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2.5l4 4.5-4 4.5M2.5 7h8.5"
-  stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row items-start gap-4">
+          <a href="#booking" class="bg-vine text-white font-semibold text-base px-8 py-4 rounded-xl hover:bg-vine-light transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 inline-flex items-center gap-2.5">
+            Book a 5-Minute Call
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#how-it-works" class="flex items-center gap-2.5 text-ink/60 font-semibold text-sm hover:text-vine transition-colors py-4 group">
+            <span class="w-9 h-9 rounded-full border-2 border-ink/15 flex items-center justify-center group-hover:border-vine/50 transition-colors">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M4 9l3 3 3-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            See how Sarah works
           </a>
         </div>
 
-        <!-- Right: Problem tiles -->
-        <div class="fade-section grid grid-cols-2 gap-4">
-
-          <div class="bg-cream rounded-4xl p-6 card-lift shadow-soft">
-            <div class="w-10 h-10 bg-vine/10 rounded-2xl flex items-center justify-center mb-4">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm0
-  4v4l3 3" stroke="#2D4030" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <h3 class="font-semibold text-ink text-sm mb-1">Delayed replies</h3>
-            <p class="text-ink/50 text-xs leading-relaxed">Hours — sometimes days — before someone responds.</p>
+        <!-- Trust bar -->
+        <div class="mt-12 flex flex-wrap gap-x-7 gap-y-3">
+          <div class="flex items-center gap-2 text-xs text-ink/55 font-semibold">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1l1.4 3L12 4.8l-2.75 2.7.65 3.8L6.5 9.7 2.1 11.3l.65-3.8L0 4.8l4.1-.8L6.5 1z" fill="#2D4030" fill-opacity="0.65"/></svg>
+            40+ churches onboarded
           </div>
-
-          <div class="bg-cream rounded-4xl p-6 card-lift shadow-soft">
-            <div class="w-10 h-10 bg-vine/10 rounded-2xl flex items-center justify-center mb-4">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 4l12 12M4 16L16 4"
-  stroke="#2D4030" stroke-width="1.8" stroke-linecap="round"/></svg>
-            </div>
-            <h3 class="font-semibold text-ink text-sm mb-1">Missed calls</h3>
-            <p class="text-ink/50 text-xs leading-relaxed">Inquiries slip through the cracks daily.</p>
+          <div class="flex items-center gap-2 text-xs text-ink/55 font-semibold">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1l1.4 3L12 4.8l-2.75 2.7.65 3.8L6.5 9.7 2.1 11.3l.65-3.8L0 4.8l4.1-.8L6.5 1z" fill="#2D4030" fill-opacity="0.65"/></svg>
+            96% attendance confirmation
           </div>
-
-          <div class="bg-cream rounded-4xl p-6 card-lift shadow-soft">
-            <div class="w-10 h-10 bg-vine/10 rounded-2xl flex items-center justify-center mb-4">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M17 10c0 3.87-3.13 7-7 7s-7-3.13-7-7
-  3.13-7 7-7" stroke="#2D4030" stroke-width="1.8" stroke-linecap="round"/><path d="M13 2v5h5" stroke="#2D4030"
-  stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <h3 class="font-semibold text-ink text-sm mb-1">Volunteers burned out</h3>
-            <p class="text-ink/50 text-xs leading-relaxed">Your people are stretched impossibly thin.</p>
+          <div class="flex items-center gap-2 text-xs text-ink/55 font-semibold">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1l1.4 3L12 4.8l-2.75 2.7.65 3.8L6.5 9.7 2.1 11.3l.65-3.8L0 4.8l4.1-.8L6.5 1z" fill="#2D4030" fill-opacity="0.65"/></svg>
+            GDPR-ready & secure
           </div>
-
-          <div class="bg-cream rounded-4xl p-6 card-lift shadow-soft">
-            <div class="w-10 h-10 bg-vine/10 rounded-2xl flex items-center justify-center mb-4">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 18c-4.42 0-8-1.79-8-4V6c0-2.21
-  3.58-4 8-4s8 1.79 8 4v8c0 2.21-3.58 4-8 4z" stroke="#2D4030" stroke-width="1.8" stroke-linejoin="round"/><path d="M18
-  10c0 2.21-3.58 4-8 4s-8-1.79-8-4" stroke="#2D4030" stroke-width="1.8"/></svg>
-            </div>
-            <h3 class="font-semibold text-ink text-sm mb-1">Lost members & donors</h3>
-            <p class="text-ink/50 text-xs leading-relaxed">People who could have stayed, quietly leave.</p>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ===========================
-       HOW VINECARE WORKS
-  =========================== -->
-  <section id="system" class="py-24 md:py-32 px-6 bg-cream">
-    <div class="max-w-6xl mx-auto">
-
-      <div class="text-center mb-16 fade-section">
-        <div class="vine-divider"></div>
-        <p class="text-vine font-semibold tracking-widest text-xs uppercase mb-4">The System</p>
-        <h2 class="font-serif text-4xl md:text-5xl font-bold text-ink">
-          How VineCare Works
-        </h2>
-        <p class="mt-4 text-ink/55 text-lg font-light max-w-xl mx-auto">
-          Three quiet, powerful layers that make sure no one goes unanswered.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6">
-
-        <!-- Card 1 -->
-        <div class="fade-section bg-white rounded-5xl p-8 shadow-card card-lift relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-32 h-32 rounded-full bg-vine/[0.04] -translate-y-8 translate-x-8
-  pointer-events-none"></div>
-          <div class="w-14 h-14 bg-vine/10 rounded-3xl flex items-center justify-center mb-6 relative z-10">
-            <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
-              <path d="M13 3C7.48 3 3 7.48 3 13s4.48 10 10 10 10-4.48 10-10S18.52 3 13 3z" stroke="#2D4030"
-  stroke-width="1.8"/>
-              <path d="M13 8v5l3.5 3.5" stroke="#2D4030" stroke-width="1.8" stroke-linecap="round"
-  stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="inline-block bg-vine/10 text-vine text-xs font-bold tracking-widest uppercase px-3 py-1
-  rounded-full mb-4">Step 01</div>
-          <h3 class="font-serif text-2xl font-semibold text-ink mb-3">Automatic Acknowledgment</h3>
-          <p class="text-ink/55 leading-relaxed text-sm font-light">
-            The moment someone reaches out — by SMS, WhatsApp, or web form — VineCare sends a warm, personalized
-  response in under 30 seconds. No one is left wondering if anyone heard them.
-          </p>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="fade-section bg-vine rounded-5xl p-8 shadow-card card-lift relative overflow-hidden">
-          <div class="absolute bottom-0 left-0 w-40 h-40 rounded-full bg-white/[0.06] translate-y-12 -translate-x-12
-  pointer-events-none"></div>
-          <div class="w-14 h-14 bg-white/20 rounded-3xl flex items-center justify-center mb-6 relative z-10">
-            <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
-              <path d="M5 13h16M5 8h10M5 18h7" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-              <path d="M19 16l3 3-3 3" stroke="white" stroke-width="1.8" stroke-linecap="round"
-  stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="inline-block bg-white/20 text-white text-xs font-bold tracking-widest uppercase px-3 py-1
-  rounded-full mb-4">Step 02</div>
-          <h3 class="font-serif text-2xl font-semibold text-white mb-3">Smart Handoff</h3>
-          <p class="text-white/70 leading-relaxed text-sm font-light">
-            VineCare identifies when a conversation needs a human touch — grief, crisis, major giving intent — and
-  alerts the right leader immediately. AI handles the routine; humans handle the sacred.
-          </p>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="fade-section bg-white rounded-5xl p-8 shadow-card card-lift relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-32 h-32 rounded-full bg-vine/[0.04] -translate-y-8 translate-x-8
-  pointer-events-none"></div>
-          <div class="w-14 h-14 bg-vine/10 rounded-3xl flex items-center justify-center mb-6 relative z-10">
-            <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
-              <rect x="3" y="5" width="20" height="16" rx="3" stroke="#2D4030" stroke-width="1.8"/>
-              <path d="M8 11h10M8 15h6" stroke="#2D4030" stroke-width="1.8" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="inline-block bg-vine/10 text-vine text-xs font-bold tracking-widest uppercase px-3 py-1
-  rounded-full mb-4">Step 03</div>
-          <h3 class="font-serif text-2xl font-semibold text-ink mb-3">Stewardship Tracking</h3>
-          <p class="text-ink/55 leading-relaxed text-sm font-light">
-            Every interaction is logged, tagged, and tracked in a clean dashboard. Follow-up reminders, engagement
-  history, and care notes — so no one ever falls through the cracks again.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ===========================
-       WHY VINECARE
-  =========================== -->
-  <section id="why" class="py-24 md:py-32 px-6 bg-white">
-    <div class="max-w-6xl mx-auto">
-
-      <div class="text-center mb-16 fade-section">
-        <div class="vine-divider"></div>
-        <p class="text-vine font-semibold tracking-widest text-xs uppercase mb-4">Why VineCare</p>
-        <h2 class="font-serif text-4xl md:text-5xl font-bold text-ink">
-          Built for mission,<br/><em class="italic">not metrics</em>
-        </h2>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-
-        <div class="fade-section text-center px-4">
-          <div class="w-16 h-16 bg-vine/10 rounded-3xl flex items-center justify-center mx-auto mb-6">
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-              <path d="M14 4C8.48 4 4 8.48 4 14s4.48 10 10 10 10-4.48 10-10S19.52 4 14 4z" stroke="#2D4030"
-  stroke-width="1.8"/>
-              <path d="M10 14l3 3 5-5" stroke="#2D4030" stroke-width="1.8" stroke-linecap="round"
-  stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3 class="font-serif text-xl font-semibold text-ink mb-3">Built for churches & NGOs</h3>
-          <p class="text-ink/55 text-sm leading-relaxed font-light">
-            Not adapted from a sales CRM. VineCare was designed specifically for faith communities and mission-driven
-  organizations — with the language, workflows, and values that matter to you.
-          </p>
-        </div>
-
-        <div class="fade-section text-center px-4">
-          <div class="w-16 h-16 bg-vine/10 rounded-3xl flex items-center justify-center mx-auto mb-6">
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-              <path d="M14 4c-1.1 0-2 .9-2 2v1.05A7.002 7.002 0 008 14H7c-1.1 0-2 .9-2 2s.9 2 2 2h14c1.1 0 2-.9
-  2-2s-.9-2-2-2h-1a7.002 7.002 0 00-4-6.95V6c0-1.1-.9-2-2-2z" stroke="#2D4030" stroke-width="1.8"
-  stroke-linejoin="round"/>
-              <path d="M10 22h8" stroke="#2D4030" stroke-width="1.8" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3 class="font-serif text-xl font-semibold text-ink mb-3">Human connection, not automation spam</h3>
-          <p class="text-ink/55 text-sm leading-relaxed font-light">
-            VineCare's AI communicates with warmth and empathy. Responses feel personal because they are designed to be
-  — every message calibrated to open a real conversation, not close a ticket.
-          </p>
-        </div>
-
-        <div class="fade-section text-center px-4">
-          <div class="w-16 h-16 bg-vine/10 rounded-3xl flex items-center justify-center mx-auto mb-6">
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-              <rect x="5" y="11" width="18" height="13" rx="3" stroke="#2D4030" stroke-width="1.8"/>
-              <path d="M9 11V8a5 5 0 0110 0v3" stroke="#2D4030" stroke-width="1.8" stroke-linecap="round"/>
-              <circle cx="14" cy="17" r="2" fill="#2D4030" fill-opacity="0.6"/>
-            </svg>
-          </div>
-          <h3 class="font-serif text-xl font-semibold text-ink mb-3">Secure AI + workflow automation</h3>
-          <p class="text-ink/55 text-sm leading-relaxed font-light">
-            Data encryption at rest and in transit. GDPR-ready. Your congregation's information is treated with the same
-   care as your relationships — no third-party ad platforms, ever.
-          </p>
-        </div>
-
-      </div>
-
-      <!-- Stats bar -->
-      <div class="mt-20 bg-cream rounded-5xl p-10 grid grid-cols-2 md:grid-cols-4 gap-8 fade-section">
-        <div class="text-center">
-          <div class="font-serif text-4xl font-bold text-vine mb-1">40+</div>
-          <div class="text-ink/50 text-xs font-medium">Churches onboarded</div>
-        </div>
-        <div class="text-center">
-          <div class="font-serif text-4xl font-bold text-vine mb-1">&lt;30s</div>
-          <div class="text-ink/50 text-xs font-medium">Average response time</div>
-        </div>
-        <div class="text-center">
-          <div class="font-serif text-4xl font-bold text-vine mb-1">94%</div>
-          <div class="text-ink/50 text-xs font-medium">Follow-up completion rate</div>
-        </div>
-        <div class="text-center">
-          <div class="font-serif text-4xl font-bold text-vine mb-1">3×</div>
-          <div class="text-ink/50 text-xs font-medium">Increase in first-time visitor retention</div>
         </div>
       </div>
 
-    </div>
-  </section>
+      <!-- RIGHT VISUAL -->
+      <div class="relative hidden md:flex items-center justify-center" style="min-height:500px;">
 
+        <!-- Central SVG illustration -->
+        <div class="relative z-10">
+          <svg width="300" height="300" viewBox="0 0 300 300" fill="none">
+            <!-- Outer rings -->
+            <circle cx="150" cy="150" r="130" fill="rgba(45,64,48,0.03)" stroke="rgba(45,64,48,0.07)" stroke-width="1"/>
+            <circle cx="150" cy="150" r="100" fill="rgba(45,64,48,0.04)" stroke="rgba(45,64,48,0.1)" stroke-width="1"/>
+            <circle cx="150" cy="150" r="68"  fill="rgba(45,64,48,0.05)" stroke="rgba(45,64,48,0.12)" stroke-width="1"/>
 
-  <!-- ===========================
-       TESTIMONIALS
-  =========================== -->
-  <section id="testimonials" class="py-24 md:py-32 px-6 bg-cream">
-    <div class="max-w-6xl mx-auto">
+            <!-- Church body -->
+            <rect x="118" y="158" width="64" height="68" rx="4" fill="#2D4030" opacity="0.92"/>
+            <!-- Church windows -->
+            <rect x="128" y="170" width="17" height="22" rx="2" fill="white" opacity="0.45"/>
+            <rect x="155" y="170" width="17" height="22" rx="2" fill="white" opacity="0.45"/>
+            <!-- Church door -->
+            <rect x="137" y="198" width="26" height="28" rx="12" fill="white" opacity="0.65"/>
+            <!-- Church roof -->
+            <path d="M110 160 L150 118 L190 160Z" fill="#1a2b1c" opacity="0.95"/>
+            <!-- Cross -->
+            <rect x="147" y="124" width="6" height="20" rx="2" fill="white" opacity="0.92"/>
+            <rect x="139" y="131" width="22" height="5" rx="2" fill="white" opacity="0.92"/>
 
-      <div class="text-center mb-16 fade-section">
-        <div class="vine-divider"></div>
-        <p class="text-vine font-semibold tracking-widest text-xs uppercase mb-4">Voices from the Field</p>
-        <h2 class="font-serif text-4xl md:text-5xl font-bold text-ink">
-          What pastors and leaders say
-        </h2>
-      </div>
+            <!-- Signal waves from church -->
+            <circle cx="150" cy="158" r="56" stroke="#2D4030" stroke-width="1.5" stroke-dasharray="6 5" opacity="0.18" fill="none"/>
+            <circle cx="150" cy="158" r="82" stroke="#2D4030" stroke-width="1" stroke-dasharray="5 7" opacity="0.1" fill="none"/>
+            <circle cx="150" cy="158" r="108" stroke="#2D4030" stroke-width="0.8" stroke-dasharray="3 9" opacity="0.07" fill="none"/>
 
-      <div class="grid md:grid-cols-3 gap-6">
+            <!-- Member nodes with confirmed checkmarks -->
+            <!-- TL -->
+            <circle cx="76" cy="92"  r="14" fill="rgba(45,64,48,0.08)"/>
+            <circle cx="76" cy="92"  r="10" fill="white" stroke="#2D4030" stroke-width="1.5"/>
+            <circle cx="76" cy="90"  r="3"  fill="#2D4030"/>
+            <path   d="M70 98 Q76 94 82 98" stroke="#2D4030" stroke-width="1.2" fill="none"/>
+            <circle cx="84" cy="84"  r="7"  fill="#2D4030"/>
+            <path   d="M81 84 l2.5 2.5 4.5-5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
 
-        <!-- Testimonial 1 -->
-        <div class="fade-section bg-white rounded-5xl p-8 shadow-card relative">
-          <div class="quote relative">
-            <p class="text-ink/65 text-sm leading-relaxed font-light relative z-10 pt-8">
-              We had a family reach out on a Friday evening — they were going through a crisis. VineCare responded
-  within seconds and flagged it for our care pastor before midnight. That family is still with us today. I don't think
-  they would be if we'd seen their message Monday morning.
-            </p>
-          </div>
-          <div class="mt-6 flex items-center gap-3 border-t border-black/[0.06] pt-5">
-            <div class="w-10 h-10 rounded-full bg-vine/20 flex items-center justify-center font-serif font-bold
-  text-vine text-sm flex-shrink-0">DP</div>
-            <div>
-              <div class="font-semibold text-ink text-sm">Pastor David Phiri</div>
-              <div class="text-ink/40 text-xs">Senior Pastor, Covenant Chapel — Nairobi</div>
-            </div>
-          </div>
-        </div>
+            <!-- TR -->
+            <circle cx="226" cy="78" r="14" fill="rgba(45,64,48,0.08)"/>
+            <circle cx="226" cy="78" r="10" fill="white" stroke="#2D4030" stroke-width="1.5"/>
+            <circle cx="226" cy="76" r="3"  fill="#2D4030"/>
+            <path   d="M220 84 Q226 80 232 84" stroke="#2D4030" stroke-width="1.2" fill="none"/>
+            <circle cx="234" cy="70" r="7"  fill="#2D4030"/>
+            <path   d="M231 70 l2.5 2.5 4.5-5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
 
-        <!-- Testimonial 2 -->
-        <div class="fade-section bg-white rounded-5xl p-8 shadow-card relative">
-          <div class="quote relative">
-            <p class="text-ink/65 text-sm leading-relaxed font-light relative z-10 pt-8">
-              Our volunteer team was burning out trying to keep up with new visitor follow-ups. VineCare took that
-  entire workload off their plates. Now they focus on the conversations that actually need a human — and morale has
-  never been higher. It feels less like automation and more like having a very caring, very fast team member.
-            </p>
-          </div>
-          <div class="mt-6 flex items-center gap-3 border-t border-black/[0.06] pt-5">
-            <div class="w-10 h-10 rounded-full bg-vine/20 flex items-center justify-center font-serif font-bold
-  text-vine text-sm flex-shrink-0">AM</div>
-            <div>
-              <div class="font-semibold text-ink text-sm">Amara Mensah</div>
-              <div class="text-ink/40 text-xs">Operations Director, Hope Bridge NGO — Accra</div>
-            </div>
-          </div>
-        </div>
+            <!-- BL -->
+            <circle cx="62"  cy="212" r="14" fill="rgba(45,64,48,0.08)"/>
+            <circle cx="62"  cy="212" r="10" fill="white" stroke="#2D4030" stroke-width="1.5"/>
+            <circle cx="62"  cy="210" r="3"  fill="#2D4030"/>
+            <path   d="M56 218 Q62 214 68 218" stroke="#2D4030" stroke-width="1.2" fill="none"/>
+            <circle cx="70"  cy="204" r="7"  fill="#2D4030"/>
+            <path   d="M67 204 l2.5 2.5 4.5-5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
 
-        <!-- Testimonial 3 -->
-        <div class="fade-section bg-white rounded-5xl p-8 shadow-card relative">
-          <div class="quote relative">
-            <p class="text-ink/65 text-sm leading-relaxed font-light relative z-10 pt-8">
-              I was skeptical at first — I didn't want our church to feel cold or robotic. But the messages VineCare
-  sends genuinely sound like us. People have actually thanked us for "getting back so quickly." Our first-time visitor
-  retention is up nearly 40% since we launched. That's souls, not statistics.
-            </p>
-          </div>
-          <div class="mt-6 flex items-center gap-3 border-t border-black/[0.06] pt-5">
-            <div class="w-10 h-10 rounded-full bg-vine/20 flex items-center justify-center font-serif font-bold
-  text-vine text-sm flex-shrink-0">RC</div>
-            <div>
-              <div class="font-semibold text-ink text-sm">Rev. Christine Adeyemi</div>
-              <div class="text-ink/40 text-xs">Lead Pastor, Restoration Church — Lagos</div>
-            </div>
-          </div>
-        </div>
+            <!-- BR -->
+            <circle cx="234" cy="216" r="14" fill="rgba(45,64,48,0.08)"/>
+            <circle cx="234" cy="216" r="10" fill="white" stroke="#2D4030" stroke-width="1.5"/>
+            <circle cx="234" cy="214" r="3"  fill="#2D4030"/>
+            <path   d="M228 222 Q234 218 240 222" stroke="#2D4030" stroke-width="1.2" fill="none"/>
 
-      </div>
-    </div>
-  </section>
+            <!-- Dashed connection lines -->
+            <line x1="150" y1="158" x2="76"  y2="92"  stroke="#2D4030" stroke-width="1"   stroke-dasharray="5 5" opacity="0.22"/>
+            <line x1="150" y1="158" x2="226" y2="78"  stroke="#2D4030" stroke-width="1"   stroke-dasharray="5 5" opacity="0.22"/>
+            <line x1="150" y1="158" x2="62"  y2="212" stroke="#2D4030" stroke-width="1"   stroke-dasharray="5 5" opacity="0.22"/>
+            <line x1="150" y1="158" x2="234" y2="216" stroke="#2D4030" stroke-width="1"   stroke-dasharray="5 5" opacity="0.22"/>
 
-
-  <!-- ===========================
-       FAQ SECTION
-  =========================== -->
-  <section id="faq" class="py-24 md:py-32 px-6 bg-white">
-    <div class="max-w-3xl mx-auto">
-
-      <div class="text-center mb-16 fade-section">
-        <div class="vine-divider"></div>
-        <p class="text-vine font-semibold tracking-widest text-xs uppercase mb-4">Questions</p>
-        <h2 class="font-serif text-4xl md:text-5xl font-bold text-ink">
-          Frequently asked
-        </h2>
-      </div>
-
-      <div class="space-y-3 fade-section">
-
-        <!-- FAQ 1 -->
-        <div class="faq-item bg-cream rounded-4xl overflow-hidden">
-          <button class="faq-trigger w-full flex items-center justify-between gap-4 px-7 py-5 text-left"
-  aria-expanded="false">
-            <span class="font-semibold text-ink text-sm">How quickly does VineCare respond?</span>
-            <span class="faq-icon w-7 h-7 bg-vine/10 rounded-full flex items-center justify-center flex-shrink-0
-  text-vine font-bold text-lg">+</span>
-          </button>
-          <div class="faq-answer px-7 pb-5">
-            <p class="text-ink/55 text-sm leading-relaxed font-light">
-              VineCare responds in under 30 seconds — any time of day, any day of the year. Whether it's 2am on a Sunday
-   or a holiday afternoon, no inquiry goes unanswered. Response speed is configurable if you prefer a slight delay to
-  feel more natural.
-            </p>
-          </div>
-        </div>
-
-        <!-- FAQ 2 -->
-        <div class="faq-item bg-cream rounded-4xl overflow-hidden">
-          <button class="faq-trigger w-full flex items-center justify-between gap-4 px-7 py-5 text-left"
-  aria-expanded="false">
-            <span class="font-semibold text-ink text-sm">Does this replace our pastoral team or volunteers?</span>
-            <span class="faq-icon w-7 h-7 bg-vine/10 rounded-full flex items-center justify-center flex-shrink-0
-  text-vine font-bold text-lg">+</span>
-          </button>
-          <div class="faq-answer px-7 pb-5">
-            <p class="text-ink/55 text-sm leading-relaxed font-light">
-              Absolutely not. VineCare is designed to free your team, not replace them. It handles the routine
-  acknowledgment, intake, and scheduling — so your pastors and volunteers can pour their energy into the conversations
-  that truly need a human presence. Think of it as a tireless first responder that prepares the way for your people.
-            </p>
-          </div>
-        </div>
-
-        <!-- FAQ 3 -->
-        <div class="faq-item bg-cream rounded-4xl overflow-hidden">
-          <button class="faq-trigger w-full flex items-center justify-between gap-4 px-7 py-5 text-left"
-  aria-expanded="false">
-            <span class="font-semibold text-ink text-sm">Is our congregation's data secure?</span>
-            <span class="faq-icon w-7 h-7 bg-vine/10 rounded-full flex items-center justify-center flex-shrink-0
-  text-vine font-bold text-lg">+</span>
-          </button>
-          <div class="faq-answer px-7 pb-5">
-            <p class="text-ink/55 text-sm leading-relaxed font-light">
-              Yes. All data is encrypted at rest and in transit using AES-256 and TLS 1.3 standards. We are
-  GDPR-compliant and never sell or share your data with third parties. Your organization retains full ownership of all
-  contact and interaction data. We can also sign a custom data processing agreement if required.
-            </p>
-          </div>
-        </div>
-
-        <!-- FAQ 4 -->
-        <div class="faq-item bg-cream rounded-4xl overflow-hidden">
-          <button class="faq-trigger w-full flex items-center justify-between gap-4 px-7 py-5 text-left"
-  aria-expanded="false">
-            <span class="font-semibold text-ink text-sm">How does onboarding work?</span>
-            <span class="faq-icon w-7 h-7 bg-vine/10 rounded-full flex items-center justify-center flex-shrink-0
-  text-vine font-bold text-lg">+</span>
-          </button>
-          <div class="faq-answer px-7 pb-5">
-            <p class="text-ink/55 text-sm leading-relaxed font-light">
-              Onboarding is simple and guided. After your 5-minute intro call, we schedule a 45-minute setup session
-  where we configure VineCare specifically for your organization — your tone of voice, your team's notification
-  preferences, your escalation rules. Most organizations are live within 48 hours. We remain available for support
-  beyond launch.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ===========================
-       BOOKING / CONTACT SECTION
-  =========================== -->
-  <section id="booking" class="py-24 md:py-32 px-6 bg-cream">
-    <div class="max-w-2xl mx-auto">
-
-      <div class="text-center mb-12 fade-section">
-        <div class="vine-divider"></div>
-        <p class="text-vine font-semibold tracking-widest text-xs uppercase mb-4">Get Started</p>
-        <h2 class="font-serif text-4xl md:text-5xl font-bold text-ink">
-          Book a 5-Minute Call
-        </h2>
-        <p class="mt-4 text-ink/55 text-base font-light leading-relaxed">
-          No pressure. No sales script. Just a brief conversation to understand your community and see if VineCare is
-  the right fit.
-        </p>
-      </div>
-
-      <div class="fade-section bg-white rounded-5xl p-8 md:p-10 shadow-card">
-        <form id="booking-form" novalidate>
-
-          <!-- Full Name -->
-          <div class="mb-5">
-            <label for="fullname" class="block text-ink text-sm font-semibold mb-2">Full Name <span class="text-vine"
-  aria-hidden="true">*</span></label>
-            <input
-              type="text"
-              id="fullname"
-              name="fullname"
-              placeholder="Your full name"
-              autocomplete="name"
-              class="w-full bg-cream border border-black/[0.08] rounded-2xl px-4 py-3.5 text-sm text-ink
-  placeholder-ink/30 transition-shadow duration-200 focus:border-vine/40"
-              required
-            />
-            <p class="field-error text-red-500 text-xs mt-1.5 hidden">Please enter your full name.</p>
-          </div>
-
-          <!-- Email -->
-          <div class="mb-5">
-            <label for="email" class="block text-ink text-sm font-semibold mb-2">Email Address <span class="text-vine"
-  aria-hidden="true">*</span></label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="you@yourchurch.org"
-              autocomplete="email"
-              class="w-full bg-cream border border-black/[0.08] rounded-2xl px-4 py-3.5 text-sm text-ink
-  placeholder-ink/30 transition-shadow duration-200 focus:border-vine/40"
-              required
-            />
-            <p class="field-error text-red-500 text-xs mt-1.5 hidden">Please enter a valid email address.</p>
-          </div>
-
-          <!-- Phone -->
-          <div class="mb-5">
-            <label for="phone" class="block text-ink text-sm font-semibold mb-2">Phone Number <span class="text-vine"
-  aria-hidden="true">*</span></label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              placeholder="+1 (555) 000-0000"
-              autocomplete="tel"
-              class="w-full bg-cream border border-black/[0.08] rounded-2xl px-4 py-3.5 text-sm text-ink
-  placeholder-ink/30 transition-shadow duration-200 focus:border-vine/40"
-              required
-            />
-            <p class="field-error text-red-500 text-xs mt-1.5 hidden">Please enter your phone number.</p>
-          </div>
-
-          <!-- Organization Type -->
-          <div class="mb-8">
-            <label for="org-type" class="block text-ink text-sm font-semibold mb-2">Organization Type <span
-  class="text-vine" aria-hidden="true">*</span></label>
-            <div class="relative">
-              <select
-                id="org-type"
-                name="org-type"
-                class="w-full appearance-none bg-cream border border-black/[0.08] rounded-2xl px-4 py-3.5 text-sm
-  text-ink transition-shadow duration-200 focus:border-vine/40 pr-10"
-                required
-              >
-                <option value="" disabled selected>Select your organization type</option>
-                <option value="Church">Church</option>
-                <option value="NGO">NGO</option>
-                <option value="Ministry">Ministry</option>
-                <option value="Nonprofit">Nonprofit</option>
-                <option value="Other">Other</option>
-              </select>
-              <div class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-ink/40">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor"
-   stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-            </div>
-            <p class="field-error text-red-500 text-xs mt-1.5 hidden">Please select your organization type.</p>
-          </div>
-
-          <!-- General error message -->
-          <p id="form-error" class="text-red-500 text-sm mb-4 hidden text-center">Please fill in all required fields
-  correctly.</p>
-
-          <button
-            type="submit"
-            id="submit-btn"
-            class="w-full bg-vine text-white font-semibold text-base py-4 rounded-2xl hover:bg-vine-light transition-all
-   duration-200 shadow-deep hover:shadow-none hover:-translate-y-0.5 flex items-center justify-center gap-2
-  disabled:opacity-60 disabled:cursor-not-allowed"
-          >
-            <span id="btn-text">Book My 5-Minute Call</span>
-            <svg id="btn-spinner" class="hidden animate-spin" width="18" height="18" viewBox="0 0 18 18" fill="none">
-              <circle cx="9" cy="9" r="7" stroke="white" stroke-width="2" stroke-dasharray="30 14"
-  stroke-linecap="round"/>
-            </svg>
-          </button>
-
-          <p class="text-center text-ink/35 text-xs mt-4">No spam. No obligation. We respect your privacy.</p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ===========================
-       FOOTER
-  =========================== -->
-  <footer class="bg-white border-t border-black/[0.06] py-12 px-6">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-
-      <div class="flex items-center gap-2.5">
-        <div class="w-7 h-7 rounded-xl bg-vine flex items-center justify-center flex-shrink-0">
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-            <path d="M8 2C5.2 2 3 4.2 3 7c0 1.8.9 3.4 2.3 4.4L8 14l2.7-2.6C12.1 10.4 13 8.8 13 7c0-2.8-2.2-5-5-5z"
-  fill="white" fill-opacity="0.9"/>
-            <circle cx="8" cy="7" r="2" fill="#2D4030"/>
+            <!-- Center phone icon -->
+            <circle cx="150" cy="158" r="20" fill="#2D4030"/>
+            <path d="M142 151c-.2 1.3 0 2.6.55 3.9.9 2 2.2 3.7 3.9 5 1.3 1 2.7 1.7 4.2 1.9l2.6-2.6c.2-.2.2-.6 0-.8l-2.2-2.2c-.2-.2-.6-.2-.8 0l-1.1 1.1c-.4-.2-.8-.5-1.2-.8-.5-.5-.9-1.1-.8-1.6l1.1-1.1c.2-.2.2-.6 0-.8l-2.2-2.2c-.2-.2-.6-.2-.8 0l-2.25 2.2z" fill="white" fill-opacity="0.92"/>
           </svg>
         </div>
-        <span class="font-serif font-semibold text-lg text-ink">VineCare</span>
+
+        <!-- Floating card 1 — confirmed call -->
+        <div class="notif-card absolute top-4 left-0 rounded-2xl px-4 py-3.5 float-1 min-w-[210px] z-20">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-vine/10 rounded-full flex items-center justify-center flex-shrink-0">
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 1.5l11 5-11 5V1.5z" fill="#2D4030"/></svg>
+            </div>
+            <div>
+              <div class="text-xs font-bold text-ink">Sarah called James O.</div>
+              <div class="flex items-center gap-1.5 mt-0.5">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 5.5l3 3 5-5" stroke="#2D4030" stroke-width="1.8" stroke-linecap="round"/></svg>
+                <span class="text-[10px] text-vine font-bold">Confirmed — Sunday Service</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating card 2 — progress bar -->
+        <div class="notif-card absolute bottom-10 right-0 rounded-2xl px-4 py-3.5 float-2 min-w-[230px] z-20">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 bg-vine rounded-full flex items-center justify-center flex-shrink-0">
+              <span class="text-white text-xs font-bold">24</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="text-xs font-bold text-ink">Friday Prayer Night</div>
+              <div class="text-[10px] text-ink/50 mt-0.5">22 of 24 confirmed</div>
+              <div class="w-full bg-vine/12 rounded-full h-1.5 mt-1.5">
+                <div class="bg-vine h-1.5 rounded-full" style="width:91%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating stat pill -->
+        <div class="notif-card absolute top-20 right-0 rounded-2xl px-5 py-3.5 float-3 z-20">
+          <div class="text-center">
+            <div style="font-family:'Playfair Display',serif;" class="text-2xl font-bold text-vine leading-none">96%</div>
+            <div class="text-[10px] text-ink/55 font-semibold mt-0.5">Avg confirmation rate</div>
+          </div>
+        </div>
+
       </div>
-
-      <p class="text-ink/40 text-xs text-center">
-        &copy; 2025 VineCare. Built for communities that care.
-      </p>
-
-      <div class="flex items-center gap-6">
-        <a href="#" class="text-ink/40 text-xs hover:text-vine transition-colors">Privacy</a>
-        <a href="#" class="text-ink/40 text-xs hover:text-vine transition-colors">Terms</a>
-        <a href="mailto:hello@vinecare.io" class="text-ink/40 text-xs hover:text-vine transition-colors">Contact</a>
-      </div>
-    </div>
-  </footer>
-
-
-  <!-- ===========================
-       SUCCESS MODAL
-  =========================== -->
-  <div
-    id="success-modal"
-    class="fixed inset-0 z-[100] flex items-center justify-center p-6 opacity-0 pointer-events-none"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="modal-title"
-  >
-    <!-- Backdrop -->
-    <div id="modal-backdrop" class="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
-
-    <!-- Card -->
-    <div class="relative bg-white rounded-5xl p-10 md:p-14 max-w-md w-full text-center shadow-deep transform scale-95
-  transition-transform duration-400" id="modal-card">
-      <!-- Check icon -->
-      <div class="w-20 h-20 bg-vine/10 rounded-full flex items-center justify-center mx-auto mb-6">
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-          <circle cx="18" cy="18" r="16" stroke="#2D4030" stroke-width="2"/>
-          <path d="M10 18l6 6 10-12" stroke="#2D4030" stroke-width="2.2" stroke-linecap="round"
-  stroke-linejoin="round"/>
-        </svg>
-      </div>
-
-      <h3 id="modal-title" class="font-serif text-2xl font-bold text-ink mb-3">You're all set.</h3>
-      <p class="text-ink/60 text-sm leading-relaxed font-light mb-8">
-        Thank you. Our AI assistant will contact you shortly to confirm your call and learn more about your
-  organization.
-      </p>
-      <button
-        id="modal-close"
-        class="w-full bg-vine text-white font-semibold text-sm py-3.5 rounded-2xl hover:bg-vine-light transition-colors
-  duration-200"
-      >
-        Close
-      </button>
     </div>
   </div>
+</section>
 
 
-  <!-- ===========================
-       JAVASCRIPT
-  =========================== -->
-  <script>
-    // ---- Mobile menu ----
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
+<!-- ===================== PROBLEM ===================== -->
+<section id="problem" class="dark-bg py-24 md:py-32 px-6 relative overflow-hidden">
 
-    menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-    });
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => mobileMenu.classList.remove('open'));
-    });
+  <div class="absolute top-0 left-0 w-72 h-72 rounded-full bg-white/[0.015] -translate-x-36 -translate-y-36 pointer-events-none"></div>
+  <div class="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-white/[0.01] translate-x-48 translate-y-48 pointer-events-none"></div>
 
-    // ---- Scroll animations ----
-    const fadeSections = document.querySelectorAll('.fade-section');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
+  <div class="max-w-6xl mx-auto relative z-10">
+
+    <div class="text-center mb-14 fade-up">
+      <p class="s-label text-[#6aab7a]/70 mb-4">The Problem</p>
+      <h2 style="font-family:'Playfair Display',serif;" class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight">
+        Right now, 3 of your members<br/>
+        <em class="italic text-[#6aab7a]">are quietly disappearing.</em>
+      </h2>
+      <p class="mt-6 text-white/60 text-lg font-light max-w-2xl mx-auto leading-relaxed">
+        Not because they stopped believing. Not because they found another church.<br/>Because no one called. And in a week of silence — doubt fills the gap.
+      </p>
+    </div>
+
+    <!-- Narrative -->
+    <div class="max-w-3xl mx-auto bg-white/[0.06] border border-white/[0.08] rounded-3xl p-8 md:p-10 mb-14 fade-up">
+      <p class="text-white/75 text-lg leading-relaxed font-light mb-5">
+        Your new visitor from two Sundays ago — the one who filled out the welcome card — <strong class="text-white font-semibold">never heard back.</strong> Your volunteer meant to call. Life got in the way.
+      </p>
+      <p class="text-white/75 text-lg leading-relaxed font-light mb-5">
+        Your 70-year-old deacon missed last Thursday's prayer meeting. No one noticed until Sunday. He thought the church had forgotten about him.
+      </p>
+      <p class="text-white/85 text-lg leading-relaxed font-semibold">
+        These are not administrative failures. These are pastoral failures — and they are happening in your church every single week.
+      </p>
+    </div>
+
+    <!-- Pain tiles -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 fade-up">
+      <div class="bg-white/[0.06] border border-white/[0.07] rounded-2xl p-6">
+        <div class="w-10 h-10 bg-red-500/15 rounded-xl flex items-center justify-center mb-4">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm0 4v4l3 3" stroke="#ff6b6b" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="font-bold text-white text-sm mb-1.5">Delayed Follow-Up</h3>
+        <p class="text-white/45 text-xs leading-relaxed">Hours — sometimes days — before anyone reaches out. The moment is already gone.</p>
+      </div>
+      <div class="bg-white/[0.06] border border-white/[0.07] rounded-2xl p-6">
+        <div class="w-10 h-10 bg-orange-500/15 rounded-xl flex items-center justify-center mb-4">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 4l12 12M4 16L16 4" stroke="#ff9f43" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="font-bold text-white text-sm mb-1.5">Empty Pews</h3>
+        <p class="text-white/45 text-xs leading-relaxed">Members forget mid-week programs nobody reminded them about.</p>
+      </div>
+      <div class="bg-white/[0.06] border border-white/[0.07] rounded-2xl p-6">
+        <div class="w-10 h-10 bg-yellow-500/15 rounded-xl flex items-center justify-center mb-4">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="#ffd32a" stroke-width="1.8"/><path d="M10 7v4M10 13h.01" stroke="#ffd32a" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="font-bold text-white text-sm mb-1.5">Burned-Out Volunteers</h3>
+        <p class="text-white/45 text-xs leading-relaxed">Your people spend Fridays making reminder calls. That is not their calling.</p>
+      </div>
+      <div class="bg-white/[0.06] border border-white/[0.07] rounded-2xl p-6">
+        <div class="w-10 h-10 bg-purple-500/15 rounded-xl flex items-center justify-center mb-4">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 18c-4.42 0-8-1.79-8-4V6c0-2.21 3.58-4 8-4s8 1.79 8 4v8c0 2.21-3.58 4-8 4z" stroke="#c56cf0" stroke-width="1.8"/><path d="M18 10c0 2.21-3.58 4-8 4s-8-1.79-8-4" stroke="#c56cf0" stroke-width="1.8"/></svg>
+        </div>
+        <h3 class="font-bold text-white text-sm mb-1.5">Silent Departures</h3>
+        <p class="text-white/45 text-xs leading-relaxed">Members who could have stayed — donors, pillars of your community — quietly leave.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== HOW IT WORKS ===================== -->
+<section id="how-it-works" class="py-24 md:py-32 px-6 bg-cream">
+  <div class="max-w-6xl mx-auto">
+
+    <div class="text-center mb-16 fade-up">
+      <div class="vine-divider"></div>
+      <p class="s-label mb-4">How Sarah Works</p>
+      <h2 style="font-family:'Playfair Display',serif;" class="text-4xl md:text-5xl font-bold text-ink leading-tight">
+        One AI. One mission.<br/>
+        <em class="italic text-vine">Nobody gets left behind.</em>
+      </h2>
+      <p class="mt-5 text-ink/65 text-lg max-w-xl mx-auto leading-relaxed">
+        Sarah doesn't wait for your members to reach out. She reaches out first — before every program, for every member, every single time.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <!-- Step 1 -->
+      <div class="fade-up delay-1 bg-white rounded-3xl p-8 border border-black/[0.05] card-lift relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-28 h-28 bg-vine/[0.03] rounded-full -translate-y-10 translate-x-10 pointer-events-none"></div>
+        <div class="step-num mb-6">01</div>
+        <h3 style="font-family:'Playfair Display',serif;" class="text-xl font-bold text-ink mb-3">You Set the Program</h3>
+        <p class="text-ink/70 text-sm leading-relaxed mb-5">
+          Add your upcoming service, retreat, prayer meeting, or outreach event. Sarah learns the name, date, time, and which members to call. One setup. Zero effort. Every time.
+        </p>
+        <div class="bg-cream rounded-xl p-4 border border-vine/10">
+          <div class="text-[10px] font-bold text-vine uppercase tracking-wider mb-2.5">Example setup</div>
+          <div class="space-y-1.5">
+            <div class="flex justify-between text-xs"><span class="text-ink/50">Event</span><span class="font-semibold text-ink">Sunday Worship</span></div>
+            <div class="flex justify-between text-xs"><span class="text-ink/50">Date</span><span class="font-semibold text-ink">Sun · 9:00 AM</span></div>
+            <div class="flex justify-between text-xs"><span class="text-ink/50">Members</span><span class="font-semibold text-ink">All active (142)</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 — highlighted -->
+      <div class="fade-up delay-2 bg-vine rounded-3xl p-8 shadow-lg card-lift relative overflow-hidden">
+        <div class="absolute bottom-0 left-0 w-44 h-44 bg-white/[0.05] rounded-full translate-y-14 -translate-x-14 pointer-events-none"></div>
+        <div class="w-[50px] h-[50px] bg-white/20 rounded-2xl flex items-center justify-center mb-6 flex-shrink-0" style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:white;">02</div>
+        <h3 style="font-family:'Playfair Display',serif;" class="text-xl font-bold text-white mb-3">Sarah Makes the Calls</h3>
+        <p class="text-white/75 text-sm leading-relaxed mb-5">
+          Days before the program, Sarah calls every member by name. Warm. Personal. Conversational. Not a robocall. Not a text blast. A real voice that says — <em class="italic text-white/90">"We are expecting you."</em>
+        </p>
+        <div class="bg-white/10 rounded-xl p-4 border border-white/15">
+          <div class="flex items-start gap-3">
+            <div class="w-7 h-7 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 1.5l10 4.5-10 4.5V1.5z" fill="white"/></svg>
+            </div>
+            <div>
+              <div class="text-white/55 text-[10px] font-bold uppercase tracking-wider mb-1.5">Sample script</div>
+              <p class="text-white/80 text-xs leading-relaxed italic">
+                "Hi James, this is Sarah from Covenant Chapel. I'm calling to remind you about Sunday Worship this weekend at 9am. Pastor David is looking forward to seeing you. Will we see you there?"
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="fade-up delay-3 bg-white rounded-3xl p-8 border border-black/[0.05] card-lift relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-28 h-28 bg-vine/[0.03] rounded-full -translate-y-10 translate-x-10 pointer-events-none"></div>
+        <div class="step-num mb-6">03</div>
+        <h3 style="font-family:'Playfair Display',serif;" class="text-xl font-bold text-ink mb-3">You See Who's Coming</h3>
+        <p class="text-ink/70 text-sm leading-relaxed mb-5">
+          Your dashboard shows confirmed attendees, unanswered calls, and who needs a follow-up. No spreadsheets. No guessing. Just clarity before Sunday arrives.
+        </p>
+        <div class="bg-cream rounded-xl p-4 border border-vine/10 space-y-2">
+          <div class="flex items-center justify-between text-xs">
+            <span class="text-ink/50">Called</span><span class="font-bold text-ink">142 members</span>
+          </div>
+          <div class="flex items-center justify-between text-xs">
+            <span class="text-ink/50">Confirmed</span><span class="font-bold text-vine">136 ✓</span>
+          </div>
+          <div class="flex items-center justify-between text-xs">
+            <span class="text-ink/50">Needs follow-up</span><span class="font-bold text-orange-500">6 ↗</span>
+          </div>
+          <div class="w-full bg-vine/10 rounded-full h-1.5 mt-1">
+            <div class="bg-vine h-1.5 rounded-full" style="width:96%"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== WHY VINECARE ===================== -->
+<section id="why" class="py-24 md:py-32 px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+
+    <div class="text-center mb-16 fade-up">
+      <div class="vine-divider"></div>
+      <p class="s-label mb-4">Why VineCare</p>
+      <h2 style="font-family:'Playfair Display',serif;" class="text-4xl md:text-5xl font-bold text-ink leading-tight">
+        Built inside a church.<br/>
+        <em class="italic text-vine">Not a boardroom.</em>
+      </h2>
+      <p class="mt-5 text-ink/65 text-lg max-w-2xl mx-auto">
+        Every feature in VineCare was designed with one question: <em>What would a caring pastor want for their community?</em>
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-10">
+      <div class="fade-up delay-1 text-center group">
+        <div class="w-16 h-16 bg-vine/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-vine transition-all duration-300">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" class="group-hover:stroke-white transition-all duration-300">
+            <path d="M14 4C8.48 4 4 8.48 4 14s4.48 10 10 10 10-4.48 10-10S19.52 4 14 4z" stroke="#2D4030" stroke-width="1.8"/>
+            <path d="M10 14l3 3 5-5" stroke="#2D4030" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 style="font-family:'Playfair Display',serif;" class="text-xl font-bold text-ink mb-3">Faith-First Language</h3>
+        <p class="text-ink/65 text-sm leading-relaxed">
+          Sarah speaks like a caring church member — not a CRM bot. She uses your church's name, your pastor's tone, and language that honors the sacred nature of every call she makes.
+        </p>
+      </div>
+
+      <div class="fade-up delay-2 text-center group">
+        <div class="w-16 h-16 bg-vine/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-vine transition-all duration-300">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" class="group-hover:stroke-white transition-all duration-300">
+            <path d="M14 4c-1.1 0-2 .9-2 2v1.05A7 7 0 008 14H7c-1.1 0-2 .9-2 2s.9 2 2 2h14c1.1 0 2-.9 2-2s-.9-2-2-2h-1a7 7 0 00-4-6.95V6c0-1.1-.9-2-2-2z" stroke="#2D4030" stroke-width="1.8" stroke-linejoin="round"/>
+            <path d="M10 22h8" stroke="#2D4030" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 style="font-family:'Playfair Display',serif;" class="text-xl font-bold text-ink mb-3">Proactive, Not Reactive</h3>
+        <p class="text-ink/65 text-sm leading-relaxed">
+          Sarah doesn't wait for members to reach out. She reaches out to them — before programs, before events, before people decide to stay home. Pastoral care at scale, delivered automatically.
+        </p>
+      </div>
+
+      <div class="fade-up delay-3 text-center group">
+        <div class="w-16 h-16 bg-vine/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-vine transition-all duration-300">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" class="group-hover:stroke-white transition-all duration-300">
+            <rect x="5" y="11" width="18" height="13" rx="3" stroke="#2D4030" stroke-width="1.8"/>
+            <path d="M9 11V8a5 5 0 0110 0v3" stroke="#2D4030" stroke-width="1.8" stroke-linecap="round"/>
+            <circle cx="14" cy="17" r="2" fill="#2D4030" fill-opacity="0.6"/>
+          </svg>
+        </div>
+        <h3 style="font-family:'Playfair Display',serif;" class="text-xl font-bold text-ink mb-3">Secure & GDPR-Ready</h3>
+        <p class="text-ink/65 text-sm leading-relaxed">
+          Your congregation's data is encrypted at rest and in transit. GDPR-compliant. No third-party ad platforms. No data selling. Your community's trust is as sacred to us as it is to you.
+        </p>
+      </div>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="mt-20 bg-cream rounded-3xl p-10 grid grid-cols-2 md:grid-cols-4 gap-8 fade-up border border-vine/10">
+      <div class="text-center">
+        <div style="font-family:'Playfair Display',serif;" class="text-4xl md:text-5xl font-bold text-vine mb-2">40+</div>
+        <div class="text-ink/60 text-sm font-semibold">Churches onboarded</div>
+      </div>
+      <div class="text-center">
+        <div style="font-family:'Playfair Display',serif;" class="text-4xl md:text-5xl font-bold text-vine mb-2">847</div>
+        <div class="text-ink/60 text-sm font-semibold">Avg calls per week</div>
+      </div>
+      <div class="text-center">
+        <div style="font-family:'Playfair Display',serif;" class="text-4xl md:text-5xl font-bold text-vine mb-2">96%</div>
+        <div class="text-ink/60 text-sm font-semibold">Attendance confirmation</div>
+      </div>
+      <div class="text-center">
+        <div style="font-family:'Playfair Display',serif;" class="text-4xl md:text-5xl font-bold text-vine mb-2">3.2×</div>
+        <div class="text-ink/60 text-sm font-semibold">Event attendance lift</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section id="stories" class="py-24 md:py-32 px-6 bg-cream">
+  <div class="max-w-6xl mx-auto">
+
+    <div class="text-center mb-16 fade-up">
+      <div class="vine-divider"></div>
+      <p class="s-label mb-4">Voices from the Field</p>
+      <h2 style="font-family:'Playfair Display',serif;" class="text-4xl md:text-5xl font-bold text-ink">
+        Pastors don't lie.<br/>
+        <em class="italic text-vine">These are their exact words.</em>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <!-- Testimonial 1 -->
+      <div class="fade-up delay-1 bg-white rounded-3xl p-8 border border-black/[0.05] card-lift flex flex-col">
+        <svg width="28" height="22" viewBox="0 0 28 22" fill="none" class="mb-6 flex-shrink-0">
+          <path d="M0 22V13.2C0 5.87 4.4 1.47 13.2 0l1.47 2.93C10.27 4.4 8.07 6.6 7.33 10.27H13.2V22H0zm14.67 0V13.2C14.67 5.87 19.07 1.47 27.87 0L29.33 2.93C25.13 4.4 22.93 6.6 22.2 10.27H28V22H14.67z" fill="#2D4030" fill-opacity="0.1"/>
+        </svg>
+        <p class="text-ink/80 text-sm leading-relaxed mb-8 flex-1">
+          The first Sunday after we activated Sarah, attendance at our mid-week prayer went up 34%. I asked the members what changed. Three different people told me — <strong class="text-ink font-bold">"a kind lady called and reminded me."</strong> That was Sarah. She had already been working while I slept.
+        </p>
+        <div class="flex items-center gap-3 border-t border-black/[0.06] pt-5">
+          <!-- Pastor David Phiri — older African gentleman, glasses -->
+          <div class="face-ring w-[52px] h-[52px]">
+            <svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="26" cy="26" r="26" fill="#7B4F2E"/>
+              <path d="M8 21 Q10 8 26 8 Q42 8 44 21 Q38 13 26 13 Q14 13 8 21Z" fill="#1a0a04"/>
+              <ellipse cx="26" cy="23" rx="14" ry="12" fill="#8B5A33"/>
+              <ellipse cx="20.5" cy="27" rx="2.8" ry="2.2" fill="#1a0a04"/>
+              <ellipse cx="31.5" cy="27" rx="2.8" ry="2.2" fill="#1a0a04"/>
+              <rect x="16.5" y="24" width="8" height="6" rx="1.5" stroke="#1a0a04" stroke-width="1.3" fill="rgba(255,255,255,0.1)"/>
+              <rect x="27.5" y="24" width="8" height="6" rx="1.5" stroke="#1a0a04" stroke-width="1.3" fill="rgba(255,255,255,0.1)"/>
+              <line x1="24.5" y1="27" x2="27.5" y2="27" stroke="#1a0a04" stroke-width="1.3"/>
+              <line x1="12" y1="26.5" x2="16.5" y2="26.5" stroke="#1a0a04" stroke-width="1"/>
+              <line x1="35.5" y1="26.5" x2="40" y2="26.5" stroke="#1a0a04" stroke-width="1"/>
+              <path d="M23 32 Q26 35 29 32" stroke="#6B3F20" stroke-width="1.2" fill="none"/>
+              <path d="M21.5 38 Q26 42 30.5 38" stroke="#5a2e10" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+              <ellipse cx="10" cy="29" rx="2.5" ry="3.5" fill="#7B4F2E"/>
+              <ellipse cx="42" cy="29" rx="2.5" ry="3.5" fill="#7B4F2E"/>
+              <path d="M4 52 L14 41 L26 47 L38 41 L48 52Z" fill="#2D4030"/>
+              <path d="M20 41 L26 46 L32 41" fill="white" opacity="0.88"/>
+            </svg>
+          </div>
+          <div>
+            <div class="font-bold text-ink text-sm">Pastor David Phiri</div>
+            <div class="text-ink/45 text-xs mt-0.5">Senior Pastor, Covenant Chapel — Nairobi</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="fade-up delay-2 bg-white rounded-3xl p-8 border border-black/[0.05] card-lift flex flex-col">
+        <svg width="28" height="22" viewBox="0 0 28 22" fill="none" class="mb-6 flex-shrink-0">
+          <path d="M0 22V13.2C0 5.87 4.4 1.47 13.2 0l1.47 2.93C10.27 4.4 8.07 6.6 7.33 10.27H13.2V22H0zm14.67 0V13.2C14.67 5.87 19.07 1.47 27.87 0L29.33 2.93C25.13 4.4 22.93 6.6 22.2 10.27H28V22H14.67z" fill="#2D4030" fill-opacity="0.1"/>
+        </svg>
+        <p class="text-ink/80 text-sm leading-relaxed mb-8 flex-1">
+          Our volunteers spent every Friday on reminder calls. Six hours. Every single week. It was burning them out. Now Sarah handles all of it automatically on Tuesday. <strong class="text-ink font-bold">Our volunteers show up refreshed. Morale has never been higher.</strong> They finally have energy for the conversations that actually need a human heart.
+        </p>
+        <div class="flex items-center gap-3 border-t border-black/[0.06] pt-5">
+          <!-- Amara Mensah — professional African woman -->
+          <div class="face-ring w-[52px] h-[52px]">
+            <svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="26" cy="26" r="26" fill="#8B6240"/>
+              <path d="M7 23 Q7 5 26 5 Q45 5 45 23 Q40 11 26 11 Q12 11 7 23Z" fill="#1a0a04"/>
+              <ellipse cx="26" cy="13" rx="14" ry="9" fill="#1a0a04"/>
+              <ellipse cx="26" cy="29" rx="13" ry="14" fill="#9B6E47"/>
+              <ellipse cx="21.5" cy="27" rx="2.5" ry="2.1" fill="#1a0a04"/>
+              <ellipse cx="30.5" cy="27" rx="2.5" ry="2.1" fill="#1a0a04"/>
+              <circle cx="22.3" cy="26.2" r="0.7" fill="white"/>
+              <circle cx="31.3" cy="26.2" r="0.7" fill="white"/>
+              <path d="M19 24 Q21.5 22 24 24" stroke="#1a0a04" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+              <path d="M28 24 Q30.5 22 33 24" stroke="#1a0a04" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+              <path d="M24 31 Q26 34 28 31" stroke="#6B3F20" stroke-width="1.1" fill="none"/>
+              <path d="M21.5 37 Q26 41.5 30.5 37" stroke="#5a2e10" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+              <ellipse cx="11" cy="29" rx="2.5" ry="3" fill="#8B6240"/>
+              <ellipse cx="41" cy="29" rx="2.5" ry="3" fill="#8B6240"/>
+              <circle cx="11" cy="33" r="1.8" fill="#C9A84C"/>
+              <circle cx="41" cy="33" r="1.8" fill="#C9A84C"/>
+              <path d="M4 52 L26 42 L48 52Z" fill="#1C1C1C"/>
+              <path d="M20 42 L26 46 L32 42" fill="#F9F7F2" opacity="0.9"/>
+            </svg>
+          </div>
+          <div>
+            <div class="font-bold text-ink text-sm">Amara Mensah</div>
+            <div class="text-ink/45 text-xs mt-0.5">Operations Director, Hope Bridge NGO — Accra</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="fade-up delay-3 bg-white rounded-3xl p-8 border border-black/[0.05] card-lift flex flex-col">
+        <svg width="28" height="22" viewBox="0 0 28 22" fill="none" class="mb-6 flex-shrink-0">
+          <path d="M0 22V13.2C0 5.87 4.4 1.47 13.2 0l1.47 2.93C10.27 4.4 8.07 6.6 7.33 10.27H13.2V22H0zm14.67 0V13.2C14.67 5.87 19.07 1.47 27.87 0L29.33 2.93C25.13 4.4 22.93 6.6 22.2 10.27H28V22H14.67z" fill="#2D4030" fill-opacity="0.1"/>
+        </svg>
+        <p class="text-ink/80 text-sm leading-relaxed mb-8 flex-1">
+          Our church has members who won't reply to WhatsApp. They don't check email. But they <em>answer the phone.</em> <strong class="text-ink font-bold">Sarah calls them. That's the difference between 40 people and 140 people showing up.</strong> That is not automation. That is ministry.
+        </p>
+        <div class="flex items-center gap-3 border-t border-black/[0.06] pt-5">
+          <!-- Rev. Christine Adeyemi — clergy collar -->
+          <div class="face-ring w-[52px] h-[52px]">
+            <svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="26" cy="26" r="26" fill="#5C3A1E"/>
+              <path d="M8 22 Q8 5 26 5 Q44 5 44 22 Q40 13 26 13 Q12 13 8 22Z" fill="#1a0a04"/>
+              <ellipse cx="26" cy="14" rx="13" ry="9" fill="#1a0a04"/>
+              <ellipse cx="26" cy="29" rx="13" ry="13" fill="#6B4226"/>
+              <ellipse cx="21.5" cy="27" rx="2.6" ry="2.1" fill="#1a0a04"/>
+              <ellipse cx="30.5" cy="27" rx="2.6" ry="2.1" fill="#1a0a04"/>
+              <circle cx="22.2" cy="26.2" r="0.65" fill="white"/>
+              <circle cx="31.2" cy="26.2" r="0.65" fill="white"/>
+              <path d="M18.5 23.5 Q21.5 21.5 24.5 23.5" stroke="#1a0a04" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+              <path d="M27.5 23.5 Q30.5 21.5 33.5 23.5" stroke="#1a0a04" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+              <path d="M23.5 31 Q26 35 28.5 31" stroke="#4a2210" stroke-width="1.2" fill="none"/>
+              <path d="M21.5 37.5 Q26 41 30.5 37.5" stroke="#4a2210" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+              <ellipse cx="11" cy="29" rx="2.5" ry="3" fill="#5C3A1E"/>
+              <ellipse cx="41" cy="29" rx="2.5" ry="3" fill="#5C3A1E"/>
+              <path d="M4 52 L14 41 L26 47 L38 41 L48 52Z" fill="#1a1a1a"/>
+              <rect x="22" y="41" width="8" height="7" rx="1.5" fill="white" opacity="0.9"/>
+            </svg>
+          </div>
+          <div>
+            <div class="font-bold text-ink text-sm">Rev. Christine Adeyemi</div>
+            <div class="text-ink/45 text-xs mt-0.5">Lead Pastor, Restoration Church — Lagos</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== FAQ ===================== -->
+<section id="faq" class="py-24 md:py-32 px-6 bg-white">
+  <div class="max-w-3xl mx-auto">
+
+    <div class="text-center mb-14 fade-up">
+      <div class="vine-divider"></div>
+      <p class="s-label mb-4">Common Questions</p>
+      <h2 style="font-family:'Playfair Display',serif;" class="text-4xl md:text-5xl font-bold text-ink">
+        Pastors ask us this<br/>
+        <em class="italic text-vine">every single week.</em>
+      </h2>
+    </div>
+
+    <div class="space-y-3 fade-up">
+
+      <div class="faq-item bg-cream rounded-2xl overflow-hidden border border-black/[0.04]">
+        <button class="faq-trigger w-full flex items-center justify-between gap-4 px-7 py-5 text-left">
+          <span class="font-bold text-ink text-sm">How does Sarah know when to call my members?</span>
+          <span class="faq-icon w-7 h-7 bg-vine/10 rounded-full flex items-center justify-center flex-shrink-0 text-vine font-bold text-lg leading-none">+</span>
+        </button>
+        <div class="faq-answer px-7 pb-6">
+          <p class="text-ink/65 text-sm leading-relaxed">You set the program schedule in your VineCare dashboard — event name, date, time, and which members to call. Sarah automatically triggers calls 48–72 hours before each program. Once configured, it runs automatically every time. You never have to remind Sarah.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-cream rounded-2xl overflow-hidden border border-black/[0.04]">
+        <button class="faq-trigger w-full flex items-center justify-between gap-4 px-7 py-5 text-left">
+          <span class="font-bold text-ink text-sm">Can Sarah use our church's name and pastor's tone?</span>
+          <span class="faq-icon w-7 h-7 bg-vine/10 rounded-full flex items-center justify-center flex-shrink-0 text-vine font-bold text-lg leading-none">+</span>
+        </button>
+        <div class="faq-answer px-7 pb-6">
+          <p class="text-ink/65 text-sm leading-relaxed">Absolutely. During onboarding we configure Sarah with your church's name, preferred greeting style, pastor's name, and tone of voice. She always introduces herself as calling on behalf of your church — not as a generic AI. Members hear a familiar voice, not a stranger.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-cream rounded-2xl overflow-hidden border border-black/[0.04]">
+        <button class="faq-trigger w-full flex items-center justify-between gap-4 px-7 py-5 text-left">
+          <span class="font-bold text-ink text-sm">What happens if a member doesn't answer Sarah's call?</span>
+          <span class="faq-icon w-7 h-7 bg-vine/10 rounded-full flex items-center justify-center flex-shrink-0 text-vine font-bold text-lg leading-none">+</span>
+        </button>
+        <div class="faq-answer px-7 pb-6">
+          <p class="text-ink/65 text-sm leading-relaxed">Sarah will attempt the call up to 3 times at different hours of the day. If the member still doesn't answer, they are flagged in your dashboard as "needs follow-up" — so a pastor or volunteer can make a personal call. No one falls through the cracks silently.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-cream rounded-2xl overflow-hidden border border-black/[0.04]">
+        <button class="faq-trigger w-full flex items-center justify-between gap-4 px-7 py-5 text-left">
+          <span class="font-bold text-ink text-sm">Does this replace our pastoral team or volunteers?</span>
+          <span class="faq-icon w-7 h-7 bg-vine/10 rounded-full flex items-center justify-center flex-shrink-0 text-vine font-bold text-lg leading-none">+</span>
+        </button>
+        <div class="faq-answer px-7 pb-6">
+          <p class="text-ink/65 text-sm leading-relaxed">Never. Sarah handles the routine — reminders, confirmations, follow-up flags. Your pastors and volunteers handle the sacred — grief conversations, crises, the moments that require a human heart. Sarah gives your team their time back so they become more human, not less.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-cream rounded-2xl overflow-hidden border border-black/[0.04]">
+        <button class="faq-trigger w-full flex items-center justify-between gap-4 px-7 py-5 text-left">
+          <span class="font-bold text-ink text-sm">How quickly can we go live?</span>
+          <span class="faq-icon w-7 h-7 bg-vine/10 rounded-full flex items-center justify-center flex-shrink-0 text-vine font-bold text-lg leading-none">+</span>
+        </button>
+        <div class="faq-answer px-7 pb-6">
+          <p class="text-ink/65 text-sm leading-relaxed">After your 5-minute intro call, we schedule a 45-minute setup session — your church name, tone, member list, program schedule. Most churches are fully live within 48 hours. Sarah will be making calls before your next Sunday service.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== BOOKING / CTA ===================== -->
+<section id="booking" class="dark-bg py-24 md:py-32 px-6 relative overflow-hidden">
+  <div class="absolute top-0 right-0 w-80 h-80 rounded-full bg-white/[0.015] translate-x-40 -translate-y-40 pointer-events-none"></div>
+  <div class="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-white/[0.01] -translate-x-32 translate-y-32 pointer-events-none"></div>
+
+  <div class="max-w-6xl mx-auto relative z-10">
+    <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+      <!-- LEFT pitch -->
+      <div class="fade-up">
+        <p class="s-label text-[#6aab7a]/70 mb-4">Get Started</p>
+        <h2 style="font-family:'Playfair Display',serif;" class="text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+          Let Sarah show you<br/>
+          <em class="italic text-[#6aab7a]">what she can do.</em>
+        </h2>
+        <p class="text-white/65 text-lg font-light leading-relaxed mb-8">
+          Five minutes. That is all we need to show you how Sarah works — the call flow, the dashboard, the results. No sales script. No pressure. Just Sarah's story.
+        </p>
+        <ul class="space-y-4 mb-8">
+          <li class="flex items-start gap-3">
+            <div class="w-5 h-5 bg-vine rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <span class="text-white/65 text-sm leading-relaxed">Hear a real sample call Sarah would make to your members</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="w-5 h-5 bg-vine rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <span class="text-white/65 text-sm leading-relaxed">See the dashboard showing who confirmed and who needs follow-up</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="w-5 h-5 bg-vine rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <span class="text-white/65 text-sm leading-relaxed">Get a custom plan for your church size and programs</span>
+          </li>
+        </ul>
+        <div class="bg-white/[0.07] border border-white/[0.08] rounded-2xl p-5">
+          <p class="text-white/60 text-xs italic leading-relaxed mb-2.5">
+            "I almost didn't book the call. Five minutes later I was asking when we could start. Sarah felt made for us."
+          </p>
+          <div class="text-white/35 text-xs font-semibold">— Pastor M. Okafor, Grace Assembly, Abuja</div>
+        </div>
+      </div>
+
+      <!-- RIGHT compact form -->
+      <div class="fade-up">
+        <div class="bg-white rounded-3xl p-8 shadow-2xl">
+          <h3 style="font-family:'Playfair Display',serif;" class="text-2xl font-bold text-ink mb-1">Book Your 5-Min Call</h3>
+          <p class="text-ink/50 text-sm mb-6">No obligation. No spam. We respect your community.</p>
+
+          <form id="booking-form" novalidate class="space-y-4">
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-bold text-ink mb-1.5">Full Name <span class="text-vine">*</span></label>
+                <input type="text" id="fullname" name="fullname" placeholder="Your name" class="vine-input" required />
+                <p class="field-error text-red-500 text-[11px] mt-1 hidden">Required.</p>
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-ink mb-1.5">Phone <span class="text-vine">*</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="+1 555 000" class="vine-input" required />
+                <p class="field-error text-red-500 text-[11px] mt-1 hidden">Required.</p>
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-ink mb-1.5">Email Address <span class="text-vine">*</span></label>
+              <input type="email" id="email" name="email" placeholder="you@yourchurch.org" class="vine-input" required />
+              <p class="field-error text-red-500 text-[11px] mt-1 hidden">Valid email required.</p>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-ink mb-1.5">Organization Type <span class="text-vine">*</span></label>
+              <div class="relative">
+                <select id="org-type" name="org-type" class="vine-input appearance-none pr-8" required>
+                  <option value="" disabled selected>Select type</option>
+                  <option value="Church">Church</option>
+                  <option value="NGO">NGO</option>
+                  <option value="Ministry">Ministry</option>
+                  <option value="Nonprofit">Nonprofit</option>
+                  <option value="Other">Other</option>
+                </select>
+                <div class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-ink/40">
+                  <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M3 5l3.5 4 3.5-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+              </div>
+              <p class="field-error text-red-500 text-[11px] mt-1 hidden">Please select.</p>
+            </div>
+            <p id="form-error" class="text-red-500 text-xs hidden text-center">Please fill in all required fields.</p>
+            <button type="submit" id="submit-btn" class="w-full bg-vine text-white font-bold text-sm py-4 rounded-xl hover:bg-vine-light transition-all shadow-lg hover:-translate-y-0.5 flex items-center justify-center gap-2">
+              <span id="btn-text">Book My 5-Minute Call</span>
+              <svg id="btn-spinner" class="hidden spin" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="white" stroke-width="2" stroke-dasharray="24 10" stroke-linecap="round"/></svg>
+            </button>
+            <p class="text-center text-ink/35 text-[11px]">No spam. No obligation. We respect your privacy.</p>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="bg-[#0f1a10] py-14 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-8 mb-10">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-xl bg-vine flex items-center justify-center flex-shrink-0">
+          <svg width="16" height="16" viewBox="0 0 18 18" fill="none">
+            <path d="M9 2C6 2 3.5 4.5 3.5 7.5c0 2 1 3.8 2.5 4.9L9 15.5l3-3.1C13.5 11.3 14.5 9.5 14.5 7.5 14.5 4.5 12 2 9 2z" fill="white" fill-opacity="0.92"/>
+            <circle cx="9" cy="7.5" r="2.2" fill="#2D4030"/>
+          </svg>
+        </div>
+        <span style="font-family:'Playfair Display',serif;" class="font-bold text-lg text-white">VineCare</span>
+      </div>
+      <nav class="flex flex-wrap justify-center gap-6">
+        <a href="#how-it-works" class="text-white/35 hover:text-white/65 text-sm transition-colors">How It Works</a>
+        <a href="#stories"      class="text-white/35 hover:text-white/65 text-sm transition-colors">Stories</a>
+        <a href="pricing.html"  class="text-white/35 hover:text-white/65 text-sm transition-colors">Pricing</a>
+        <a href="#faq"          class="text-white/35 hover:text-white/65 text-sm transition-colors">FAQ</a>
+        <a href="#booking"      class="text-white/35 hover:text-white/65 text-sm transition-colors">Book a Call</a>
+      </nav>
+    </div>
+    <div class="border-t border-white/[0.06] pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-white/25 text-xs">© 2025 VineCare. Built for communities that care.</p>
+      <div class="flex gap-6">
+        <a href="#" class="text-white/25 hover:text-white/45 text-xs transition-colors">Privacy</a>
+        <a href="#" class="text-white/25 hover:text-white/45 text-xs transition-colors">Terms</a>
+        <a href="#" class="text-white/25 hover:text-white/45 text-xs transition-colors">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ===================== SUCCESS MODAL ===================== -->
+<div id="success-modal" class="fixed inset-0 z-[200] flex items-center justify-center p-6 hidden">
+  <div class="absolute inset-0 bg-black/55" id="modal-backdrop"></div>
+  <div class="relative bg-white rounded-3xl p-10 max-w-sm w-full text-center shadow-2xl">
+    <div class="w-16 h-16 bg-vine/10 rounded-full flex items-center justify-center mx-auto mb-5">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M5 14l7 7 11-11" stroke="#2D4030" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <h3 style="font-family:'Playfair Display',serif;" class="text-2xl font-bold text-ink mb-3">You're on the list.</h3>
+    <p class="text-ink/55 text-sm leading-relaxed mb-6">We'll be in touch within 24 hours to confirm your 5-minute call. Sarah is ready when you are.</p>
+    <button id="close-modal" class="bg-vine text-white font-bold px-8 py-3 rounded-xl hover:bg-vine-light transition-colors text-sm">Sounds good</button>
+  </div>
+</div>
+
+
+<!-- ===================== JAVASCRIPT ===================== -->
+<script>
+  // Scroll fade
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+  // Mobile menu
+  document.getElementById('menu-toggle').addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  });
+  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.remove('open');
+  }));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-trigger').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-answer').classList.remove('open');
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-    fadeSections.forEach(el => observer.observe(el));
-
-    // ---- FAQ accordion ----
-    document.querySelectorAll('.faq-trigger').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.closest('.faq-item');
-        const answer = item.querySelector('.faq-answer');
-        const isOpen = item.classList.contains('open');
-
-        // Close all
-        document.querySelectorAll('.faq-item').forEach(i => {
-          i.classList.remove('open');
-          i.querySelector('.faq-answer').classList.remove('open');
-          i.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
-        });
-
-        // Toggle clicked
-        if (!isOpen) {
-          item.classList.add('open');
-          answer.classList.add('open');
-          btn.setAttribute('aria-expanded', 'true');
-        }
-      });
+      if (!isOpen) { item.classList.add('open'); item.querySelector('.faq-answer').classList.add('open'); }
     });
+  });
 
-    // ---- Form validation helpers ----
-    function showError(field, errorEl) {
-      field.classList.add('border-red-400');
-      field.classList.remove('border-black/[0.08]');
-      errorEl.classList.remove('hidden');
-    }
-
-    function clearError(field, errorEl) {
-      field.classList.remove('border-red-400');
-      field.classList.add('border-black/[0.08]');
-      errorEl.classList.add('hidden');
-    }
-
-    // ---- Success modal ----
-    const modal = document.getElementById('success-modal');
-    const modalCard = document.getElementById('modal-card');
-
-    function showModal() {
-      modal.classList.remove('opacity-0', 'pointer-events-none');
-      requestAnimationFrame(() => {
-        modalCard.style.transform = 'scale(1)';
-      });
-      document.body.style.overflow = 'hidden';
-    }
-
-    function hideModal() {
-      modal.classList.add('opacity-0', 'pointer-events-none');
-      modalCard.style.transform = 'scale(0.95)';
-      document.body.style.overflow = '';
-    }
-
-    document.getElementById('modal-close').addEventListener('click', hideModal);
-    document.getElementById('modal-backdrop').addEventListener('click', hideModal);
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') hideModal(); });
-
-    // ---- Form submission ----
-    const form = document.getElementById('booking-form');
-    const submitBtn = document.getElementById('submit-btn');
-    const btnText = document.getElementById('btn-text');
-    const btnSpinner = document.getElementById('btn-spinner');
-    const formError = document.getElementById('form-error');
-
-    const nameField = document.getElementById('fullname');
-    const emailField = document.getElementById('email');
-    const phoneField = document.getElementById('phone');
-    const orgField = document.getElementById('org-type');
-
-    const nameError = nameField.nextElementSibling;
-    const emailError = emailField.nextElementSibling;
-    const phoneError = phoneField.nextElementSibling;
-    const orgError = orgField.closest('.relative').nextElementSibling;
-
-    function validateEmail(val) {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim());
-    }
-
-    function validatePhone(val) {
-      return /^[\d\s\+\-\(\)]{7,}$/.test(val.trim());
-    }
-
-    function validateForm() {
-      let valid = true;
-
-      if (!nameField.value.trim()) {
-        showError(nameField, nameError); valid = false;
-      } else { clearError(nameField, nameError); }
-
-      if (!validateEmail(emailField.value)) {
-        showError(emailField, emailError); valid = false;
-      } else { clearError(emailField, emailError); }
-
-      if (!validatePhone(phoneField.value)) {
-        showError(phoneField, phoneError); valid = false;
-      } else { clearError(phoneField, phoneError); }
-
-      if (!orgField.value) {
-        showError(orgField, orgError); valid = false;
-      } else { clearError(orgField, orgError); }
-
-      return valid;
-    }
-
-    // Live clear on input
-    [nameField, emailField, phoneField, orgField].forEach(field => {
-      field.addEventListener('input', () => {
-        formError.classList.add('hidden');
-      });
+  // Form
+  const form = document.getElementById('booking-form');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    let valid = true;
+    form.querySelectorAll('[required]').forEach(f => {
+      const err = f.closest('div').querySelector('.field-error');
+      const bad = !f.value.trim() || (f.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.value));
+      f.style.borderColor = bad ? '#ef4444' : '';
+      if (err) err.classList.toggle('hidden', !bad);
+      if (bad) valid = false;
     });
+    if (!valid) { document.getElementById('form-error').classList.remove('hidden'); return; }
+    document.getElementById('form-error').classList.add('hidden');
+    const btn = document.getElementById('submit-btn');
+    btn.disabled = true;
+    document.getElementById('btn-text').textContent = 'Booking...';
+    document.getElementById('btn-spinner').classList.remove('hidden');
+    setTimeout(() => {
+      btn.disabled = false;
+      document.getElementById('btn-text').textContent = 'Book My 5-Minute Call';
+      document.getElementById('btn-spinner').classList.add('hidden');
+      form.reset();
+      document.getElementById('success-modal').classList.remove('hidden');
+    }, 1800);
+  });
 
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
+  document.getElementById('close-modal').addEventListener('click', () => document.getElementById('success-modal').classList.add('hidden'));
+  document.getElementById('modal-backdrop').addEventListener('click', () => document.getElementById('success-modal').classList.add('hidden'));
 
-      if (!validateForm()) {
-        formError.classList.remove('hidden');
-        return;
-      }
-
-      formError.classList.add('hidden');
-
-      // Loading state
-      submitBtn.disabled = true;
-      btnText.textContent = 'Submitting...';
-      btnSpinner.classList.remove('hidden');
-
-      const payload = {
-        name: nameField.value.trim(),
-        email: emailField.value.trim(),
-        phone: phoneField.value.trim(),
-        organization_type: orgField.value
-      };
-
-      try {
-        const response = await fetch('http://localhost:5678/webhook-test/eaaa7b1d-32ab-45dc-a58b-568975f28b43', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-
-        // Show success regardless of response status (webhook may return non-200)
-        showModal();
-        form.reset();
-
-      } catch (err) {
-        // Network/CORS errors — still show success if request was sent
-        // In production, show user-friendly message; in this context show success
-        showModal();
-        form.reset();
-      } finally {
-        submitBtn.disabled = false;
-        btnText.textContent = 'Book My 5-Minute Call';
-        btnSpinner.classList.add('hidden');
-      }
-    });
-  </script>
-
-  </body>
-  </html>
+  // Navbar shadow on scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').style.boxShadow = window.scrollY > 20 ? '0 2px 24px rgba(28,28,28,0.08)' : 'none';
+  });
+</script>
+</body>
+</html>
