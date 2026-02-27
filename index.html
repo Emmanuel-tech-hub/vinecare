@@ -214,7 +214,7 @@
 <body>
 
 <!-- ===================== NAVBAR ===================== -->
-<header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-[#F9F7F2]/88 border-b border-black/[0.06]">
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 border-b" style="background:rgba(4,13,5,0.75);border-color:rgba(74,222,128,0.1);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)">
   <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
 
     <a href="index.html" class="flex items-center gap-2.5">
@@ -224,86 +224,321 @@
           <circle cx="9" cy="7.5" r="2.2" fill="#2D4030"/>
         </svg>
       </div>
-      <span style="font-family:'Playfair Display',serif;" class="font-bold text-xl text-ink tracking-tight">VineCare</span>
+      <span style="font-family:'Playfair Display',serif;" class="font-bold text-xl tracking-tight" style="color:white">VineCare</span>
     </a>
 
     <nav class="hidden md:flex items-center gap-7">
-      <a href="#problem"      class="text-sm font-medium text-ink/65 hover:text-vine transition-colors">The Problem</a>
-      <a href="#how-it-works" class="text-sm font-medium text-ink/65 hover:text-vine transition-colors">How It Works</a>
-      <a href="#why"          class="text-sm font-medium text-ink/65 hover:text-vine transition-colors">Why VineCare</a>
-      <a href="#stories"      class="text-sm font-medium text-ink/65 hover:text-vine transition-colors">Stories</a>
-      <a href="pricing.html"  class="text-sm font-medium text-ink/65 hover:text-vine transition-colors">Pricing</a>
-      <a href="#faq"          class="text-sm font-medium text-ink/65 hover:text-vine transition-colors">FAQ</a>
+      <a href="#problem"      class="text-sm font-medium transition-colors" style="color:rgba(255,255,255,0.55)" onmouseover="this.style.color='#4ade80'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">The Problem</a>
+      <a href="#how-it-works" class="text-sm font-medium transition-colors" style="color:rgba(255,255,255,0.55)" onmouseover="this.style.color='#4ade80'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">How It Works</a>
+      <a href="#why"          class="text-sm font-medium transition-colors" style="color:rgba(255,255,255,0.55)" onmouseover="this.style.color='#4ade80'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Why VineCare</a>
+      <a href="#stories"      class="text-sm font-medium transition-colors" style="color:rgba(255,255,255,0.55)" onmouseover="this.style.color='#4ade80'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Stories</a>
+      <a href="#faq"          class="text-sm font-medium transition-colors" style="color:rgba(255,255,255,0.55)" onmouseover="this.style.color='#4ade80'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">FAQ</a>
     </nav>
 
     <div class="hidden md:flex">
-      <a href="#booking" class="bg-vine text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-vine-light transition-all shadow-sm hover:-translate-y-0.5">
+      <a href="#booking" class="glow-btn text-sm font-semibold px-5 py-2.5 rounded-xl">
         Book a 5-Min Call
       </a>
     </div>
 
-    <button id="menu-toggle" class="md:hidden p-2 rounded-xl hover:bg-vine/10 transition-colors">
+    <button id="menu-toggle" class="md:hidden p-2 rounded-xl transition-colors" style="color:rgba(255,255,255,0.7)">
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-        <path d="M3 6h16M3 11h16M3 16h16" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round"/>
+        <path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>
     </button>
   </div>
 
-  <div id="mobile-menu" class="md:hidden border-t border-black/[0.06] bg-[#F9F7F2]/96">
+  <div id="mobile-menu" class="md:hidden border-t" style="border-color:rgba(74,222,128,0.1);background:rgba(4,13,5,0.96)">
     <nav class="flex flex-col px-6 py-5 gap-4">
-      <a href="#problem"      class="mobile-link text-sm font-medium text-ink/70 hover:text-vine">The Problem</a>
-      <a href="#how-it-works" class="mobile-link text-sm font-medium text-ink/70 hover:text-vine">How It Works</a>
-      <a href="#why"          class="mobile-link text-sm font-medium text-ink/70 hover:text-vine">Why VineCare</a>
-      <a href="#stories"      class="mobile-link text-sm font-medium text-ink/70 hover:text-vine">Stories</a>
-      <a href="pricing.html"  class="mobile-link text-sm font-medium text-ink/70 hover:text-vine">Pricing</a>
-      <a href="#faq"          class="mobile-link text-sm font-medium text-ink/70 hover:text-vine">FAQ</a>
-      <a href="#booking"      class="mobile-link mt-1 bg-vine text-white text-center font-semibold px-5 py-3 rounded-xl hover:bg-vine-light transition-colors">Book a 5-Min Call</a>
+      <a href="#problem"      class="mobile-link text-sm font-medium" style="color:rgba(255,255,255,0.65)">The Problem</a>
+      <a href="#how-it-works" class="mobile-link text-sm font-medium" style="color:rgba(255,255,255,0.65)">How It Works</a>
+      <a href="#why"          class="mobile-link text-sm font-medium" style="color:rgba(255,255,255,0.65)">Why VineCare</a>
+      <a href="#stories"      class="mobile-link text-sm font-medium" style="color:rgba(255,255,255,0.65)">Stories</a>
+      <a href="#faq"          class="mobile-link text-sm font-medium" style="color:rgba(255,255,255,0.65)">FAQ</a>
+      <a href="#booking"      class="mobile-link mt-1 glow-btn text-white text-center font-semibold px-5 py-3 rounded-xl">Book a 5-Min Call</a>
     </nav>
   </div>
 </header>
 
 
 <!-- ===================== HERO ===================== -->
-<section class="hero-bg dot-grid relative pt-28 pb-24 md:pt-40 md:pb-36 px-6 overflow-hidden">
+<style>
+  /* ===== DARK HERO ===== */
+  #dark-hero {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(160deg, #040d05 0%, #071209 40%, #0b1c0e 100%);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding-top: 88px;
+  }
 
-  <!-- Faint decorative rings -->
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full border border-vine/[0.05] pointer-events-none"></div>
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-vine/[0.07] pointer-events-none"></div>
+  /* Canvas layer */
+  #hero-canvas {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
 
-  <div class="max-w-6xl mx-auto relative z-10">
+  /* Globe wireframe */
+  .globe-wrap {
+    position: absolute;
+    pointer-events: none;
+    animation: globe-float 8s ease-in-out infinite;
+  }
+  .globe-wrap.g2 { animation-duration: 11s; animation-delay: -3s; }
+  .globe-wrap.g3 { animation-duration: 9s; animation-delay: -6s; }
+  @keyframes globe-float {
+    0%,100% { transform: translateY(0px) rotate(0deg); }
+    40%     { transform: translateY(-26px) rotate(1.5deg); }
+    70%     { transform: translateY(-12px) rotate(-0.8deg); }
+  }
+
+  /* Wire paths */
+  .wire-path {
+    stroke-linecap: round;
+    fill: none;
+    animation: wire-flow 5s linear infinite;
+  }
+  .wp2 { animation-delay: -1.2s; animation-duration: 7s; }
+  .wp3 { animation-delay: -2.5s; animation-duration: 6s; }
+  .wp4 { animation-delay: -0.8s; animation-duration: 8s; }
+  .wp5 { animation-delay: -3.5s; animation-duration: 5.5s; }
+  .wp6 { animation-delay: -1.8s; animation-duration: 9s; }
+  @keyframes wire-flow {
+    0%   { stroke-dashoffset: 900; opacity: 0; }
+    8%   { opacity: 1; }
+    88%  { opacity: 1; }
+    100% { stroke-dashoffset: 0; opacity: 0; }
+  }
+
+  /* Particles */
+  .hero-particle {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(74,222,128,0.9) 0%, rgba(74,222,128,0) 70%);
+    pointer-events: none;
+    animation: particle-pulse 3s ease-in-out infinite;
+  }
+  @keyframes particle-pulse {
+    0%,100% { opacity: 0.15; transform: scale(1); }
+    50%     { opacity: 0.6;  transform: scale(1.4); }
+  }
+
+  /* Orbs shooting up */
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: orb-shoot linear infinite;
+  }
+  @keyframes orb-shoot {
+    0%   { transform: translateY(0) scale(1);   opacity: 0; }
+    5%   { opacity: 0.9; }
+    90%  { opacity: 0.6; }
+    100% { transform: translateY(-115vh) scale(0.15); opacity: 0; }
+  }
+
+  /* Ripple */
+  .hero-ripple {
+    position: absolute;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(74,222,128,0.75);
+    transform: translate(-50%,-50%) scale(0);
+    pointer-events: none;
+    animation: ripple-expand 1.1s cubic-bezier(0,.7,.5,1) forwards;
+    z-index: 9;
+  }
+  @keyframes ripple-expand {
+    to { transform: translate(-50%,-50%) scale(55); opacity: 0; }
+  }
+
+  /* Dark notif cards */
+  .dark-notif {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(74,222,128,0.18);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(74,222,128,0.06) inset;
+  }
+
+  /* Gradient text green */
+  .gradient-text-green {
+    background: linear-gradient(135deg, #4ade80 0%, #86efac 50%, #bbf7d0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glow button */
+  .glow-btn {
+    background: rgba(74,222,128,0.12);
+    border: 1px solid rgba(74,222,128,0.45);
+    color: white;
+    transition: all 0.3s;
+    box-shadow: 0 0 0 0 rgba(74,222,128,0);
+  }
+  .glow-btn:hover {
+    background: rgba(74,222,128,0.22);
+    border-color: rgba(74,222,128,0.7);
+    box-shadow: 0 0 28px rgba(74,222,128,0.25), 0 0 8px rgba(74,222,128,0.15);
+    transform: translateY(-2px);
+  }
+
+  /* Ghost btn */
+  .ghost-btn {
+    color: rgba(255,255,255,0.55);
+    transition: color 0.2s;
+  }
+  .ghost-btn:hover { color: rgba(74,222,128,0.85); }
+</style>
+
+<section id="dark-hero">
+
+  <!-- ===== CANVAS: all animated elements ===== -->
+  <svg id="hero-canvas" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+
+    <!-- === ELECTRIC WIRE PATHS === -->
+    <!-- Wire 1: diagonal top-left to right -->
+    <path class="wire-path" d="M-80 120 C200 80 400 260 700 180 S1100 60 1520 200"
+      stroke="rgba(74,222,128,0.25)" stroke-width="1.2" stroke-dasharray="900"/>
+    <!-- Wire 2: sweeping bottom arc -->
+    <path class="wire-path wp2" d="M-50 750 C150 640 350 820 600 700 S900 560 1200 680 S1380 780 1520 700"
+      stroke="rgba(134,239,172,0.2)" stroke-width="1" stroke-dasharray="900"/>
+    <!-- Wire 3: mid diagonal -->
+    <path class="wire-path wp3" d="M1540 300 C1200 380 900 200 600 320 S200 460 -60 380"
+      stroke="rgba(74,222,128,0.18)" stroke-width="0.9" stroke-dasharray="900"/>
+    <!-- Wire 4: sharp zig -->
+    <path class="wire-path wp4" d="M300 -20 C380 180 260 360 420 480 S600 620 520 780 S440 880 600 920"
+      stroke="rgba(187,247,208,0.15)" stroke-width="0.8" stroke-dasharray="900"/>
+    <!-- Wire 5: right side flow -->
+    <path class="wire-path wp5" d="M1540 500 C1300 420 1100 580 900 500 S680 340 500 460 S280 600 -60 520"
+      stroke="rgba(74,222,128,0.22)" stroke-width="1.1" stroke-dasharray="900"/>
+    <!-- Wire 6: upper curve -->
+    <path class="wire-path wp6" d="M700 -30 C760 120 900 80 1050 200 S1300 360 1540 280"
+      stroke="rgba(134,239,172,0.16)" stroke-width="0.7" stroke-dasharray="900"/>
+
+    <!-- === GLOBE 1 — large, top-right ===  -->
+    <g class="globe-wrap" style="transform-origin:1100px 220px">
+      <!-- Outer glow ring -->
+      <circle cx="1100" cy="220" r="122" fill="none" stroke="rgba(74,222,128,0.06)" stroke-width="1"/>
+      <!-- Globe body -->
+      <circle cx="1100" cy="220" r="108" fill="rgba(74,222,128,0.025)" stroke="rgba(74,222,128,0.35)" stroke-width="1.2"
+        style="filter:drop-shadow(0 0 14px rgba(74,222,128,0.3))"/>
+      <!-- Latitude lines -->
+      <ellipse cx="1100" cy="176" rx="100" ry="22" fill="none" stroke="rgba(74,222,128,0.22)" stroke-width="0.8"/>
+      <ellipse cx="1100" cy="220" rx="108" ry="30" fill="none" stroke="rgba(74,222,128,0.28)" stroke-width="0.9"/>
+      <ellipse cx="1100" cy="264" rx="100" ry="22" fill="none" stroke="rgba(74,222,128,0.22)" stroke-width="0.8"/>
+      <ellipse cx="1100" cy="148" rx="75" ry="12" fill="none" stroke="rgba(74,222,128,0.15)" stroke-width="0.7"/>
+      <ellipse cx="1100" cy="292" rx="75" ry="12" fill="none" stroke="rgba(74,222,128,0.15)" stroke-width="0.7"/>
+      <!-- Longitude lines -->
+      <ellipse cx="1100" cy="220" rx="30" ry="108" fill="none" stroke="rgba(74,222,128,0.22)" stroke-width="0.8"/>
+      <ellipse cx="1100" cy="220" rx="70" ry="108" fill="none" stroke="rgba(74,222,128,0.18)" stroke-width="0.7"/>
+      <ellipse cx="1100" cy="220" rx="100" ry="108" fill="none" stroke="rgba(74,222,128,0.14)" stroke-width="0.7"/>
+      <!-- Center dot glow -->
+      <circle cx="1100" cy="220" r="5" fill="rgba(74,222,128,0.6)" style="filter:drop-shadow(0 0 6px rgba(74,222,128,0.9))"/>
+      <!-- Radiating signal dots -->
+      <circle cx="1100" cy="220" r="18" fill="none" stroke="rgba(74,222,128,0.25)" stroke-width="0.8" stroke-dasharray="3 4"/>
+      <circle cx="1100" cy="220" r="35" fill="none" stroke="rgba(74,222,128,0.15)" stroke-width="0.7" stroke-dasharray="2 5"/>
+    </g>
+
+    <!-- === GLOBE 2 — medium, bottom-left === -->
+    <g class="globe-wrap g2" style="transform-origin:200px 680px">
+      <circle cx="200" cy="680" r="88" fill="rgba(74,222,128,0.02)" stroke="rgba(74,222,128,0.28)" stroke-width="1"
+        style="filter:drop-shadow(0 0 10px rgba(74,222,128,0.22))"/>
+      <ellipse cx="200" cy="645" rx="82" ry="18" fill="none" stroke="rgba(74,222,128,0.2)" stroke-width="0.7"/>
+      <ellipse cx="200" cy="680" rx="88" ry="25" fill="none" stroke="rgba(74,222,128,0.25)" stroke-width="0.8"/>
+      <ellipse cx="200" cy="715" rx="82" ry="18" fill="none" stroke="rgba(74,222,128,0.2)" stroke-width="0.7"/>
+      <ellipse cx="200" cy="680" rx="25" ry="88" fill="none" stroke="rgba(74,222,128,0.2)" stroke-width="0.7"/>
+      <ellipse cx="200" cy="680" rx="60" ry="88" fill="none" stroke="rgba(74,222,128,0.15)" stroke-width="0.6"/>
+      <circle cx="200" cy="680" r="4" fill="rgba(74,222,128,0.55)" style="filter:drop-shadow(0 0 5px rgba(74,222,128,0.8))"/>
+    </g>
+
+    <!-- === GLOBE 3 — small, top-center-left === -->
+    <g class="globe-wrap g3" style="transform-origin:420px 160px">
+      <circle cx="420" cy="160" r="58" fill="rgba(74,222,128,0.015)" stroke="rgba(74,222,128,0.22)" stroke-width="0.9"
+        style="filter:drop-shadow(0 0 8px rgba(74,222,128,0.18))"/>
+      <ellipse cx="420" cy="135" rx="53" ry="14" fill="none" stroke="rgba(74,222,128,0.16)" stroke-width="0.6"/>
+      <ellipse cx="420" cy="160" rx="58" ry="18" fill="none" stroke="rgba(74,222,128,0.2)" stroke-width="0.7"/>
+      <ellipse cx="420" cy="185" rx="53" ry="14" fill="none" stroke="rgba(74,222,128,0.16)" stroke-width="0.6"/>
+      <ellipse cx="420" cy="160" rx="18" ry="58" fill="none" stroke="rgba(74,222,128,0.16)" stroke-width="0.6"/>
+      <ellipse cx="420" cy="160" rx="45" ry="58" fill="none" stroke="rgba(74,222,128,0.12)" stroke-width="0.5"/>
+      <circle cx="420" cy="160" r="3" fill="rgba(74,222,128,0.5)" style="filter:drop-shadow(0 0 4px rgba(74,222,128,0.7))"/>
+    </g>
+
+    <!-- === PARTICLES === (20 dots scattered) -->
+    <circle cx="180"  cy="200" r="2"   fill="rgba(74,222,128,0.5)"  style="animation:particle-pulse 2.8s ease-in-out infinite 0s"/>
+    <circle cx="350"  cy="420" r="1.5" fill="rgba(134,239,172,0.4)" style="animation:particle-pulse 3.5s ease-in-out infinite 0.4s"/>
+    <circle cx="600"  cy="120" r="2.5" fill="rgba(74,222,128,0.6)"  style="animation:particle-pulse 2.2s ease-in-out infinite 0.9s"/>
+    <circle cx="750"  cy="760" r="1.8" fill="rgba(74,222,128,0.45)" style="animation:particle-pulse 4s ease-in-out infinite 1.2s"/>
+    <circle cx="950"  cy="380" r="2"   fill="rgba(134,239,172,0.5)" style="animation:particle-pulse 3.1s ease-in-out infinite 0.6s"/>
+    <circle cx="1200" cy="550" r="1.5" fill="rgba(74,222,128,0.4)"  style="animation:particle-pulse 2.7s ease-in-out infinite 1.8s"/>
+    <circle cx="1350" cy="140" r="2.2" fill="rgba(74,222,128,0.55)" style="animation:particle-pulse 3.8s ease-in-out infinite 0.3s"/>
+    <circle cx="80"   cy="500" r="1.8" fill="rgba(134,239,172,0.35)" style="animation:particle-pulse 3.3s ease-in-out infinite 2.1s"/>
+    <circle cx="480"  cy="650" r="2"   fill="rgba(74,222,128,0.45)" style="animation:particle-pulse 2.5s ease-in-out infinite 1s"/>
+    <circle cx="820"  cy="250" r="1.5" fill="rgba(74,222,128,0.5)"  style="animation:particle-pulse 4.2s ease-in-out infinite 0.7s"/>
+    <circle cx="1000" cy="820" r="2.3" fill="rgba(134,239,172,0.4)" style="animation:particle-pulse 3s ease-in-out infinite 1.5s"/>
+    <circle cx="270"  cy="320" r="1.6" fill="rgba(74,222,128,0.4)"  style="animation:particle-pulse 2.9s ease-in-out infinite 2.4s"/>
+    <circle cx="1450" cy="640" r="2"   fill="rgba(74,222,128,0.45)" style="animation:particle-pulse 3.6s ease-in-out infinite 0.2s"/>
+    <circle cx="660"  cy="870" r="1.7" fill="rgba(134,239,172,0.35)" style="animation:particle-pulse 3.2s ease-in-out infinite 1.7s"/>
+    <circle cx="1280" cy="380" r="2.1" fill="rgba(74,222,128,0.5)"  style="animation:particle-pulse 2.6s ease-in-out infinite 0.5s"/>
+
+  </svg>
+
+  <!-- ===== BALLOON ORBS (DOM elements for easier animation staggering) ===== -->
+  <div class="hero-orb" style="width:8px;height:8px;left:12%;bottom:-10px;background:radial-gradient(circle,rgba(74,222,128,0.95),rgba(74,222,128,0));box-shadow:0 0 10px rgba(74,222,128,0.7);animation-duration:7s;animation-delay:0s;"></div>
+  <div class="hero-orb" style="width:5px;height:5px;left:22%;bottom:-10px;background:radial-gradient(circle,rgba(255,255,255,0.9),rgba(255,255,255,0));box-shadow:0 0 6px rgba(255,255,255,0.5);animation-duration:10s;animation-delay:1.3s;"></div>
+  <div class="hero-orb" style="width:10px;height:10px;left:35%;bottom:-10px;background:radial-gradient(circle,rgba(134,239,172,0.9),rgba(134,239,172,0));box-shadow:0 0 14px rgba(74,222,128,0.6);animation-duration:8s;animation-delay:2.8s;"></div>
+  <div class="hero-orb" style="width:6px;height:6px;left:48%;bottom:-10px;background:radial-gradient(circle,rgba(74,222,128,0.85),rgba(74,222,128,0));box-shadow:0 0 8px rgba(74,222,128,0.55);animation-duration:12s;animation-delay:0.5s;"></div>
+  <div class="hero-orb" style="width:4px;height:4px;left:58%;bottom:-10px;background:radial-gradient(circle,rgba(187,247,208,0.9),rgba(187,247,208,0));box-shadow:0 0 5px rgba(187,247,208,0.5);animation-duration:9s;animation-delay:3.5s;"></div>
+  <div class="hero-orb" style="width:9px;height:9px;left:67%;bottom:-10px;background:radial-gradient(circle,rgba(74,222,128,0.95),rgba(74,222,128,0));box-shadow:0 0 12px rgba(74,222,128,0.7);animation-duration:6s;animation-delay:1.8s;"></div>
+  <div class="hero-orb" style="width:5px;height:5px;left:75%;bottom:-10px;background:radial-gradient(circle,rgba(255,255,255,0.85),rgba(255,255,255,0));box-shadow:0 0 7px rgba(255,255,255,0.45);animation-duration:11s;animation-delay:4.2s;"></div>
+  <div class="hero-orb" style="width:7px;height:7px;left:83%;bottom:-10px;background:radial-gradient(circle,rgba(134,239,172,0.9),rgba(134,239,172,0));box-shadow:0 0 9px rgba(74,222,128,0.6);animation-duration:8.5s;animation-delay:2.1s;"></div>
+  <div class="hero-orb" style="width:4px;height:4px;left:91%;bottom:-10px;background:radial-gradient(circle,rgba(74,222,128,0.8),rgba(74,222,128,0));box-shadow:0 0 5px rgba(74,222,128,0.5);animation-duration:13s;animation-delay:0.9s;"></div>
+  <div class="hero-orb" style="width:6px;height:6px;left:6%;bottom:-10px;background:radial-gradient(circle,rgba(187,247,208,0.85),rgba(187,247,208,0));box-shadow:0 0 8px rgba(187,247,208,0.5);animation-duration:9.5s;animation-delay:5s;"></div>
+  <div class="hero-orb" style="width:11px;height:11px;left:42%;bottom:-10px;background:radial-gradient(circle,rgba(74,222,128,0.9),rgba(74,222,128,0));box-shadow:0 0 16px rgba(74,222,128,0.75);animation-duration:7.5s;animation-delay:6.3s;"></div>
+  <div class="hero-orb" style="width:5px;height:5px;left:54%;bottom:-10px;background:radial-gradient(circle,rgba(255,255,255,0.9),rgba(255,255,255,0));box-shadow:0 0 6px rgba(255,255,255,0.5);animation-duration:10.5s;animation-delay:3s;"></div>
+
+  <!-- ===== TEXT CONTENT ===== -->
+  <div class="max-w-6xl mx-auto px-6 relative z-10 w-full py-20">
     <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
 
       <!-- LEFT TEXT -->
       <div class="fade-up">
+
         <!-- Live badge -->
-        <div class="inline-flex items-center gap-2.5 bg-vine/10 border border-vine/20 text-vine text-xs font-bold px-4 py-2 rounded-full mb-8 tracking-wide">
+        <div class="inline-flex items-center gap-2.5 border border-[rgba(74,222,128,0.3)] bg-[rgba(74,222,128,0.07)] text-[#86efac] text-xs font-bold px-4 py-2 rounded-full mb-8 tracking-wide"
+             style="box-shadow:0 0 20px rgba(74,222,128,0.12)">
           <span class="relative flex-shrink-0 w-2 h-2">
-            <span class="absolute inset-0 rounded-full bg-vine/40 pulse-anim"></span>
-            <span class="relative block w-2 h-2 rounded-full bg-vine blink"></span>
+            <span class="absolute inset-0 rounded-full bg-[#4ade80]/40 pulse-anim"></span>
+            <span class="relative block w-2 h-2 rounded-full bg-[#4ade80] blink"></span>
           </span>
           Sarah is active at 40+ churches right now
         </div>
 
-        <!-- Main hook headline -->
-        <h1 style="font-family:'Playfair Display',serif;" class="text-5xl md:text-6xl lg:text-[3.8rem] font-bold text-ink leading-[1.07] tracking-tight mb-6">
+        <!-- Headline -->
+        <h1 style="font-family:'Playfair Display',serif;" class="text-5xl md:text-6xl lg:text-[3.8rem] font-bold text-white leading-[1.07] tracking-tight mb-6">
           Your Members Are<br/>
           Waiting For Someone<br/>
-          <em class="italic gradient-text">To Call.</em><br/>
+          <em class="italic gradient-text-green">To Call.</em><br/>
           Sarah Already Did.
         </h1>
 
-        <p class="text-base md:text-lg text-ink/75 leading-relaxed font-normal mb-10 max-w-lg">
+        <p class="text-base md:text-lg leading-relaxed font-normal mb-10 max-w-lg" style="color:rgba(255,255,255,0.65)">
           Sarah is a proactive AI voice agent built exclusively for churches and NGOs. She automatically calls every member — by name, with warmth — before every program. Your community stays connected. Your events stay full. No one drifts away in silence.
         </p>
 
         <!-- CTAs -->
         <div class="flex flex-col sm:flex-row items-start gap-4">
-          <a href="#booking" class="bg-vine text-white font-semibold text-base px-8 py-4 rounded-xl hover:bg-vine-light transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 inline-flex items-center gap-2.5">
+          <a href="#booking" class="glow-btn font-semibold text-base px-8 py-4 rounded-xl inline-flex items-center gap-2.5">
             Book a 5-Minute Call
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <a href="#how-it-works" class="flex items-center gap-2.5 text-ink/60 font-semibold text-sm hover:text-vine transition-colors py-4 group">
-            <span class="w-9 h-9 rounded-full border-2 border-ink/15 flex items-center justify-center group-hover:border-vine/50 transition-colors">
+          <a href="#how-it-works" class="ghost-btn flex items-center gap-2.5 font-semibold text-sm py-4 group">
+            <span class="w-9 h-9 rounded-full flex items-center justify-center transition-colors" style="border:2px solid rgba(255,255,255,0.12)">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M4 9l3 3 3-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </span>
             See how Sarah works
@@ -312,136 +547,109 @@
 
         <!-- Trust bar -->
         <div class="mt-12 flex flex-wrap gap-x-7 gap-y-3">
-          <div class="flex items-center gap-2 text-xs text-ink/55 font-semibold">
-            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1l1.4 3L12 4.8l-2.75 2.7.65 3.8L6.5 9.7 2.1 11.3l.65-3.8L0 4.8l4.1-.8L6.5 1z" fill="#2D4030" fill-opacity="0.65"/></svg>
+          <div class="flex items-center gap-2 text-xs font-semibold" style="color:rgba(255,255,255,0.4)">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1l1.4 3L12 4.8l-2.75 2.7.65 3.8L6.5 9.7 2.1 11.3l.65-3.8L0 4.8l4.1-.8L6.5 1z" fill="rgba(74,222,128,0.6)"/></svg>
             40+ churches onboarded
           </div>
-          <div class="flex items-center gap-2 text-xs text-ink/55 font-semibold">
-            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1l1.4 3L12 4.8l-2.75 2.7.65 3.8L6.5 9.7 2.1 11.3l.65-3.8L0 4.8l4.1-.8L6.5 1z" fill="#2D4030" fill-opacity="0.65"/></svg>
+          <div class="flex items-center gap-2 text-xs font-semibold" style="color:rgba(255,255,255,0.4)">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1l1.4 3L12 4.8l-2.75 2.7.65 3.8L6.5 9.7 2.1 11.3l.65-3.8L0 4.8l4.1-.8L6.5 1z" fill="rgba(74,222,128,0.6)"/></svg>
             96% attendance confirmation
           </div>
-          <div class="flex items-center gap-2 text-xs text-ink/55 font-semibold">
-            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1l1.4 3L12 4.8l-2.75 2.7.65 3.8L6.5 9.7 2.1 11.3l.65-3.8L0 4.8l4.1-.8L6.5 1z" fill="#2D4030" fill-opacity="0.65"/></svg>
+          <div class="flex items-center gap-2 text-xs font-semibold" style="color:rgba(255,255,255,0.4)">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1l1.4 3L12 4.8l-2.75 2.7.65 3.8L6.5 9.7 2.1 11.3l.65-3.8L0 4.8l4.1-.8L6.5 1z" fill="rgba(74,222,128,0.6)"/></svg>
             GDPR-ready & secure
           </div>
         </div>
       </div>
 
-      <!-- RIGHT VISUAL -->
-      <div class="relative hidden md:flex items-center justify-center" style="min-height:500px;">
+      <!-- RIGHT — Dark floating cards -->
+      <div class="relative hidden md:flex items-center justify-center" style="min-height:460px;">
 
-        <!-- Central SVG illustration -->
+        <!-- Central globe visual -->
         <div class="relative z-10">
-          <svg width="300" height="300" viewBox="0 0 300 300" fill="none">
-            <!-- Outer rings -->
-            <circle cx="150" cy="150" r="130" fill="rgba(45,64,48,0.03)" stroke="rgba(45,64,48,0.07)" stroke-width="1"/>
-            <circle cx="150" cy="150" r="100" fill="rgba(45,64,48,0.04)" stroke="rgba(45,64,48,0.1)" stroke-width="1"/>
-            <circle cx="150" cy="150" r="68"  fill="rgba(45,64,48,0.05)" stroke="rgba(45,64,48,0.12)" stroke-width="1"/>
-
+          <svg width="280" height="280" viewBox="0 0 280 280" fill="none">
+            <!-- Glow aura -->
+            <circle cx="140" cy="140" r="135" fill="rgba(74,222,128,0.02)" stroke="rgba(74,222,128,0.06)" stroke-width="1"/>
+            <circle cx="140" cy="140" r="105" fill="rgba(74,222,128,0.03)" stroke="rgba(74,222,128,0.1)" stroke-width="1"/>
+            <circle cx="140" cy="140" r="72"  fill="rgba(74,222,128,0.05)" stroke="rgba(74,222,128,0.18)" stroke-width="1.2"/>
+            <!-- Signal rings -->
+            <circle cx="140" cy="140" r="50" fill="none" stroke="rgba(74,222,128,0.2)" stroke-width="1" stroke-dasharray="6 4"/>
+            <circle cx="140" cy="140" r="78" fill="none" stroke="rgba(74,222,128,0.12)" stroke-width="0.8" stroke-dasharray="4 6"/>
+            <circle cx="140" cy="140" r="106" fill="none" stroke="rgba(74,222,128,0.07)" stroke-width="0.6" stroke-dasharray="3 8"/>
             <!-- Church body -->
-            <rect x="118" y="158" width="64" height="68" rx="4" fill="#2D4030" opacity="0.92"/>
-            <!-- Church windows -->
-            <rect x="128" y="170" width="17" height="22" rx="2" fill="white" opacity="0.45"/>
-            <rect x="155" y="170" width="17" height="22" rx="2" fill="white" opacity="0.45"/>
-            <!-- Church door -->
-            <rect x="137" y="198" width="26" height="28" rx="12" fill="white" opacity="0.65"/>
-            <!-- Church roof -->
-            <path d="M110 160 L150 118 L190 160Z" fill="#1a2b1c" opacity="0.95"/>
-            <!-- Cross -->
-            <rect x="147" y="124" width="6" height="20" rx="2" fill="white" opacity="0.92"/>
-            <rect x="139" y="131" width="22" height="5" rx="2" fill="white" opacity="0.92"/>
-
-            <!-- Signal waves from church -->
-            <circle cx="150" cy="158" r="56" stroke="#2D4030" stroke-width="1.5" stroke-dasharray="6 5" opacity="0.18" fill="none"/>
-            <circle cx="150" cy="158" r="82" stroke="#2D4030" stroke-width="1" stroke-dasharray="5 7" opacity="0.1" fill="none"/>
-            <circle cx="150" cy="158" r="108" stroke="#2D4030" stroke-width="0.8" stroke-dasharray="3 9" opacity="0.07" fill="none"/>
-
-            <!-- Member nodes with confirmed checkmarks -->
-            <!-- TL -->
-            <circle cx="76" cy="92"  r="14" fill="rgba(45,64,48,0.08)"/>
-            <circle cx="76" cy="92"  r="10" fill="white" stroke="#2D4030" stroke-width="1.5"/>
-            <circle cx="76" cy="90"  r="3"  fill="#2D4030"/>
-            <path   d="M70 98 Q76 94 82 98" stroke="#2D4030" stroke-width="1.2" fill="none"/>
-            <circle cx="84" cy="84"  r="7"  fill="#2D4030"/>
-            <path   d="M81 84 l2.5 2.5 4.5-5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-
-            <!-- TR -->
-            <circle cx="226" cy="78" r="14" fill="rgba(45,64,48,0.08)"/>
-            <circle cx="226" cy="78" r="10" fill="white" stroke="#2D4030" stroke-width="1.5"/>
-            <circle cx="226" cy="76" r="3"  fill="#2D4030"/>
-            <path   d="M220 84 Q226 80 232 84" stroke="#2D4030" stroke-width="1.2" fill="none"/>
-            <circle cx="234" cy="70" r="7"  fill="#2D4030"/>
-            <path   d="M231 70 l2.5 2.5 4.5-5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-
-            <!-- BL -->
-            <circle cx="62"  cy="212" r="14" fill="rgba(45,64,48,0.08)"/>
-            <circle cx="62"  cy="212" r="10" fill="white" stroke="#2D4030" stroke-width="1.5"/>
-            <circle cx="62"  cy="210" r="3"  fill="#2D4030"/>
-            <path   d="M56 218 Q62 214 68 218" stroke="#2D4030" stroke-width="1.2" fill="none"/>
-            <circle cx="70"  cy="204" r="7"  fill="#2D4030"/>
-            <path   d="M67 204 l2.5 2.5 4.5-5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-
-            <!-- BR -->
-            <circle cx="234" cy="216" r="14" fill="rgba(45,64,48,0.08)"/>
-            <circle cx="234" cy="216" r="10" fill="white" stroke="#2D4030" stroke-width="1.5"/>
-            <circle cx="234" cy="214" r="3"  fill="#2D4030"/>
-            <path   d="M228 222 Q234 218 240 222" stroke="#2D4030" stroke-width="1.2" fill="none"/>
-
-            <!-- Dashed connection lines -->
-            <line x1="150" y1="158" x2="76"  y2="92"  stroke="#2D4030" stroke-width="1"   stroke-dasharray="5 5" opacity="0.22"/>
-            <line x1="150" y1="158" x2="226" y2="78"  stroke="#2D4030" stroke-width="1"   stroke-dasharray="5 5" opacity="0.22"/>
-            <line x1="150" y1="158" x2="62"  y2="212" stroke="#2D4030" stroke-width="1"   stroke-dasharray="5 5" opacity="0.22"/>
-            <line x1="150" y1="158" x2="234" y2="216" stroke="#2D4030" stroke-width="1"   stroke-dasharray="5 5" opacity="0.22"/>
-
-            <!-- Center phone icon -->
-            <circle cx="150" cy="158" r="20" fill="#2D4030"/>
-            <path d="M142 151c-.2 1.3 0 2.6.55 3.9.9 2 2.2 3.7 3.9 5 1.3 1 2.7 1.7 4.2 1.9l2.6-2.6c.2-.2.2-.6 0-.8l-2.2-2.2c-.2-.2-.6-.2-.8 0l-1.1 1.1c-.4-.2-.8-.5-1.2-.8-.5-.5-.9-1.1-.8-1.6l1.1-1.1c.2-.2.2-.6 0-.8l-2.2-2.2c-.2-.2-.6-.2-.8 0l-2.25 2.2z" fill="white" fill-opacity="0.92"/>
+            <rect x="112" y="152" width="56" height="60" rx="3" fill="rgba(74,222,128,0.15)" stroke="rgba(74,222,128,0.4)" stroke-width="1"/>
+            <rect x="121" y="163" width="15" height="19" rx="2" fill="rgba(74,222,128,0.25)"/>
+            <rect x="144" y="163" width="15" height="19" rx="2" fill="rgba(74,222,128,0.25)"/>
+            <rect x="129" y="185" width="22" height="27" rx="11" fill="rgba(74,222,128,0.3)"/>
+            <path d="M104 153 L140 115 L176 153Z" fill="rgba(74,222,128,0.2)" stroke="rgba(74,222,128,0.5)" stroke-width="1"/>
+            <rect x="138" y="120" width="4" height="16" rx="2" fill="rgba(74,222,128,0.8)" style="filter:drop-shadow(0 0 4px rgba(74,222,128,0.8))"/>
+            <rect x="132" y="126" width="16" height="4" rx="2" fill="rgba(74,222,128,0.8)" style="filter:drop-shadow(0 0 4px rgba(74,222,128,0.8))"/>
+            <!-- Member nodes -->
+            <g style="filter:drop-shadow(0 0 5px rgba(74,222,128,0.5))">
+              <circle cx="68"  cy="86"  r="9" fill="rgba(74,222,128,0.15)" stroke="rgba(74,222,128,0.55)" stroke-width="1"/>
+              <circle cx="68"  cy="86"  r="3" fill="rgba(74,222,128,0.9)"/>
+              <circle cx="216" cy="72"  r="9" fill="rgba(74,222,128,0.15)" stroke="rgba(74,222,128,0.55)" stroke-width="1"/>
+              <circle cx="216" cy="72"  r="3" fill="rgba(74,222,128,0.9)"/>
+              <circle cx="55"  cy="205" r="9" fill="rgba(74,222,128,0.15)" stroke="rgba(74,222,128,0.55)" stroke-width="1"/>
+              <circle cx="55"  cy="205" r="3" fill="rgba(74,222,128,0.9)"/>
+              <circle cx="222" cy="210" r="9" fill="rgba(74,222,128,0.15)" stroke="rgba(74,222,128,0.55)" stroke-width="1"/>
+              <circle cx="222" cy="210" r="3" fill="rgba(74,222,128,0.9)"/>
+            </g>
+            <!-- Connection lines -->
+            <line x1="140" y1="150" x2="68"  y2="86"  stroke="rgba(74,222,128,0.3)" stroke-width="0.8" stroke-dasharray="4 4"/>
+            <line x1="140" y1="150" x2="216" y2="72"  stroke="rgba(74,222,128,0.3)" stroke-width="0.8" stroke-dasharray="4 4"/>
+            <line x1="140" y1="150" x2="55"  y2="205" stroke="rgba(74,222,128,0.3)" stroke-width="0.8" stroke-dasharray="4 4"/>
+            <line x1="140" y1="150" x2="222" y2="210" stroke="rgba(74,222,128,0.3)" stroke-width="0.8" stroke-dasharray="4 4"/>
           </svg>
         </div>
 
-        <!-- Floating card 1 — confirmed call -->
-        <div class="notif-card absolute top-4 left-0 rounded-2xl px-4 py-3.5 float-1 min-w-[210px] z-20">
+        <!-- Dark floating card 1 — confirmed call -->
+        <div class="dark-notif absolute top-2 left-0 rounded-2xl px-4 py-3.5 float-1 min-w-[210px] z-20">
           <div class="flex items-center gap-3">
-            <div class="w-8 h-8 bg-vine/10 rounded-full flex items-center justify-center flex-shrink-0">
-              <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 1.5l11 5-11 5V1.5z" fill="#2D4030"/></svg>
+            <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(74,222,128,0.15)">
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 1.5l11 5-11 5V1.5z" fill="rgba(74,222,128,0.9)"/></svg>
             </div>
             <div>
-              <div class="text-xs font-bold text-ink">Sarah called James O.</div>
+              <div class="text-xs font-bold text-white">Sarah called James O.</div>
               <div class="flex items-center gap-1.5 mt-0.5">
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 5.5l3 3 5-5" stroke="#2D4030" stroke-width="1.8" stroke-linecap="round"/></svg>
-                <span class="text-[10px] text-vine font-bold">Confirmed — Sunday Service</span>
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 5.5l3 3 5-5" stroke="#4ade80" stroke-width="1.8" stroke-linecap="round"/></svg>
+                <span class="text-[10px] font-bold" style="color:#4ade80">Confirmed — Sunday Service</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Floating card 2 — progress bar -->
-        <div class="notif-card absolute bottom-10 right-0 rounded-2xl px-4 py-3.5 float-2 min-w-[230px] z-20">
+        <!-- Dark floating card 2 — progress -->
+        <div class="dark-notif absolute bottom-8 right-0 rounded-2xl px-4 py-3.5 float-2 min-w-[230px] z-20">
           <div class="flex items-center gap-3">
-            <div class="w-9 h-9 bg-vine rounded-full flex items-center justify-center flex-shrink-0">
-              <span class="text-white text-xs font-bold">24</span>
+            <div class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(74,222,128,0.2)">
+              <span class="text-xs font-bold" style="color:#4ade80">24</span>
             </div>
             <div class="flex-1 min-w-0">
-              <div class="text-xs font-bold text-ink">Friday Prayer Night</div>
-              <div class="text-[10px] text-ink/50 mt-0.5">22 of 24 confirmed</div>
-              <div class="w-full bg-vine/12 rounded-full h-1.5 mt-1.5">
-                <div class="bg-vine h-1.5 rounded-full" style="width:91%"></div>
+              <div class="text-xs font-bold text-white">Friday Prayer Night</div>
+              <div class="text-[10px] mt-0.5" style="color:rgba(255,255,255,0.45)">22 of 24 confirmed</div>
+              <div class="w-full rounded-full h-1.5 mt-1.5" style="background:rgba(74,222,128,0.12)">
+                <div class="h-1.5 rounded-full" style="width:91%;background:linear-gradient(90deg,#4ade80,#86efac)"></div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Floating stat pill -->
-        <div class="notif-card absolute top-20 right-0 rounded-2xl px-5 py-3.5 float-3 z-20">
+        <!-- Dark stat pill -->
+        <div class="dark-notif absolute top-20 right-0 rounded-2xl px-5 py-3.5 float-3 z-20">
           <div class="text-center">
-            <div style="font-family:'Playfair Display',serif;" class="text-2xl font-bold text-vine leading-none">96%</div>
-            <div class="text-[10px] text-ink/55 font-semibold mt-0.5">Avg confirmation rate</div>
+            <div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;background:linear-gradient(135deg,#4ade80,#86efac);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1">96%</div>
+            <div class="text-[10px] font-semibold mt-0.5" style="color:rgba(255,255,255,0.45)">Avg confirmation rate</div>
           </div>
         </div>
 
       </div>
     </div>
   </div>
+
+  <!-- Bottom fade into next section -->
+  <div class="absolute bottom-0 left-0 right-0 h-24 pointer-events-none" style="background:linear-gradient(to bottom, transparent, rgba(4,13,5,0.8))"></div>
+
 </section>
 
 
@@ -1317,12 +1525,14 @@
   const BOOKING_URL = 'https://calendar.app.google/ieBHSNYzDK99MgQo8';
   const MAX_HISTORY = 40;
 
-  const SYSTEM_PROMPT = `You are Sarah, VineCare's friendly and knowledgeable sales assistant. You speak like a real person — warm, confident, and conversational. Never sound robotic or stiff.
+  const SYSTEM_PROMPT = `You are Sarah, VineCare's friendly and knowledgeable sales assistant. You speak like a real person — warm, confident, and conversational. Never sound robotic.
 
 About VineCare:
-VineCare is an AI-powered community engagement platform built exclusively for churches and NGOs in Africa and beyond. Our AI agent (also named Sarah) automatically calls church members and visitors by name before every program or event — ensuring no one is forgotten and attendance stays high.
+VineCare is an AI-powered community engagement platform built exclusively for churches and NGOs in Africa and beyond. Our AI agent (also named Sarah) automatically calls church members and visitors by name before every program — ensuring no one is forgotten and attendance stays high.
 
 Key facts:
+- Company: VineCare Africa (vinecarafrica.com)
+- Based in Africa, serving churches and NGOs globally
 - Sarah calls every visitor within 24 hours of their first visit
 - Sarah calls every member 12 hours before events to confirm attendance
 - Admin teams get real-time updates after every call
@@ -1330,7 +1540,8 @@ Key facts:
 - 40+ churches onboarded
 - Goes live within 48 hours of setup
 - 14-day money-back guarantee
-- No backend, no IT team needed
+- No IT team needed
+- Office hours: Mon–Fri, 9am–5pm WAT. Outside hours, booking is available 24/7.
 
 Pricing:
 - Starter: $49/month (up to 100 members, 4 programs/month)
@@ -1341,13 +1552,17 @@ Pricing:
 The problem VineCare solves:
 30% of visitors never return because no one contacted them. Events suffer when reminders get lost in WhatsApp groups. Volunteers burn out making manual calls. VineCare eliminates the "Silence Gap."
 
-When someone asks about booking a demo or call, tell them to book at: ${BOOKING_URL}
-
-Keep responses short and conversational — 2-4 sentences max unless they ask for detail. Use the visitor's name if they share it. If they ask about pricing, give a quick summary and invite them to book a call.`;
+STRICT RULES:
+1. If asked anything you are not 100% sure about (specific addresses, staff names, phone numbers, technical integrations not listed above, anything outside this brief), do NOT guess. Say: "Great question! That's best answered by our team — book a free 5-min call here: ${BOOKING_URL}"
+2. After 5 exchanges, warmly encourage booking: "You're asking great questions! The best next step is a quick 5-min call with our team: ${BOOKING_URL}"
+3. Keep responses short — 2-3 sentences max.
+4. Use the visitor's name if they share it.
+5. Never pretend to know information not listed above.`;
 
   let history = [];
   let isOpen = false;
   let isTyping = false;
+  let exchangeCount = 0;
 
   const bubble = document.getElementById('vc-chat-bubble');
   const win = document.getElementById('vc-chat-window');
@@ -1402,6 +1617,17 @@ Keep responses short and conversational — 2-4 sentences max unless they ask fo
     history.push({ role: 'user', parts: [{ text }] });
     if (history.length > MAX_HISTORY) history = history.slice(-MAX_HISTORY);
 
+    exchangeCount++;
+
+    // After 5 exchanges, push to booking
+    if (exchangeCount > 5) {
+      removeTyping();
+      addMsg('bot', "You're asking great questions! The best next step is a quick 5-min call with our team who can answer everything personally 😊", true);
+      isTyping = false;
+      sendBtn.disabled = false;
+      return;
+    }
+
     try {
       const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_KEY}`, {
         method: 'POST',
@@ -1409,18 +1635,26 @@ Keep responses short and conversational — 2-4 sentences max unless they ask fo
         body: JSON.stringify({
           system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
           contents: history,
-          generationConfig: { temperature: 0.85, maxOutputTokens: 300 }
+          generationConfig: { temperature: 0.7, maxOutputTokens: 200 }
         })
       });
       const data = await res.json();
-      const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text || "I'm having a quick moment — try again in a second!";
+
+      // If API returns an error object, fall back to booking
+      if (data.error || !data?.candidates?.[0]?.content?.parts?.[0]?.text) {
+        removeTyping();
+        addMsg('bot', "I want to make sure you get the right answer! Our team can help — book a free 5-min call 👇", true);
+        history.push({ role: 'model', parts: [{ text: 'Book a call' }] });
+      } else {
+        const reply = data.candidates[0].content.parts[0].text;
+        removeTyping();
+        const wantsBooking = /book|call|demo|schedule|calendar|appointment/i.test(text) || /book|calendar|schedule/i.test(reply);
+        addMsg('bot', reply, wantsBooking);
+        history.push({ role: 'model', parts: [{ text: reply }] });
+      }
+    } catch(err) {
       removeTyping();
-      const wantsBooking = /book|call|demo|schedule|calendar|appointment/i.test(text) || /book|calendar|schedule/i.test(reply);
-      addMsg('bot', reply, wantsBooking);
-      history.push({ role: 'model', parts: [{ text: reply }] });
-    } catch {
-      removeTyping();
-      addMsg('bot', "Oops, something went wrong on my end. Try again in a moment!");
+      addMsg('bot', "I'm sorry, I can't answer that right now. Please book a free call and our team will help you directly 👇", true);
     }
     isTyping = false;
     sendBtn.disabled = false;
@@ -1546,7 +1780,17 @@ Keep responses short and conversational — 2-4 sentences max unless they ask fo
   window.addEventListener('scroll', () => {
     document.getElementById('navbar').style.boxShadow = window.scrollY > 20 ? '0 2px 24px rgba(28,28,28,0.08)' : 'none';
   });
-</script>
-</body>
-</html>
 
+  // ===== HERO WATER RIPPLE =====
+  (function() {
+    const hero = document.getElementById('dark-hero');
+    if (!hero) return;
+    hero.addEventListener('click', function(e) {
+      const rect = hero.getBoundingClientRect();
+      const ripple = document.createElement('div');
+      ripple.className = 'hero-ripple';
+      ripple.style.left = (e.clientX - rect.left) + 'px';
+      ripple.style.top  = (e.clientY - rect.top)  + 'px';
+      hero.appendChild(ripple);
+      ripple.addEventListener('animationend', () => ripple.remove());
+    });
