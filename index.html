@@ -217,14 +217,36 @@
 <header id="navbar" class="fixed top-0 left-0 right-0 z-50 border-b" style="background:rgba(4,13,5,0.75);border-color:rgba(74,222,128,0.1);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)">
   <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
 
-    <a href="index.html" class="flex items-center gap-2.5">
-      <div class="w-9 h-9 rounded-xl bg-vine flex items-center justify-center flex-shrink-0 shadow-sm">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-          <path d="M9 2C6 2 3.5 4.5 3.5 7.5c0 2 1 3.8 2.5 4.9L9 15.5l3-3.1C13.5 11.3 14.5 9.5 14.5 7.5 14.5 4.5 12 2 9 2z" fill="white" fill-opacity="0.92"/>
-          <circle cx="9" cy="7.5" r="2.2" fill="#2D4030"/>
-        </svg>
+    <a href="index.html" class="flex items-center gap-3">
+      <!-- VineCareAfrica logo mark: interlocking arc (community/connection) + leaf node -->
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="VineCareAfrica logo mark">
+        <!-- Outer ring — subtle signal/reach -->
+        <circle cx="18" cy="18" r="17" stroke="rgba(74,222,128,0.25)" stroke-width="1"/>
+        <!-- Arc representing reaching out (left arm) -->
+        <path d="M9 22 C9 14 14 10 18 10" stroke="rgba(74,222,128,0.55)" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+        <!-- Arc representing reaching out (right arm) -->
+        <path d="M27 22 C27 14 22 10 18 10" stroke="rgba(74,222,128,0.55)" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+        <!-- Central node — the community/person -->
+        <circle cx="18" cy="10" r="2.5" fill="#4ade80" style="filter:drop-shadow(0 0 4px rgba(74,222,128,0.7))"/>
+        <!-- Vine stem going down -->
+        <line x1="18" y1="12.5" x2="18" y2="22" stroke="#4ade80" stroke-width="1.4" stroke-linecap="round"/>
+        <!-- Small leaf left -->
+        <path d="M18 17 C15.5 15.5 13.5 17 14.5 19 C15.5 17.5 17 17.5 18 17Z" fill="rgba(74,222,128,0.6)"/>
+        <!-- Small leaf right -->
+        <path d="M18 19 C20.5 17.5 22.5 19 21.5 21 C20.5 19.5 19 19.5 18 19Z" fill="rgba(74,222,128,0.6)"/>
+        <!-- Base: three dots — members connected -->
+        <circle cx="12" cy="25" r="1.8" fill="rgba(74,222,128,0.5)"/>
+        <circle cx="18" cy="26.5" r="1.8" fill="rgba(74,222,128,0.75)" style="filter:drop-shadow(0 0 3px rgba(74,222,128,0.5))"/>
+        <circle cx="24" cy="25" r="1.8" fill="rgba(74,222,128,0.5)"/>
+        <!-- Connecting line between members -->
+        <line x1="12" y1="25" x2="18" y2="26.5" stroke="rgba(74,222,128,0.3)" stroke-width="0.8"/>
+        <line x1="18" y1="26.5" x2="24" y2="25" stroke="rgba(74,222,128,0.3)" stroke-width="0.8"/>
+      </svg>
+      <!-- Wordmark -->
+      <div class="flex flex-col leading-none">
+        <span style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:white;letter-spacing:-0.01em;line-height:1.1">VineCare</span>
+        <span style="font-size:0.6rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(74,222,128,0.6);line-height:1.3">Africa</span>
       </div>
-      <span style="font-family:'Playfair Display',serif;" class="font-bold text-xl tracking-tight" style="color:white">VineCare</span>
     </a>
 
     <nav class="hidden md:flex items-center gap-7">
@@ -235,7 +257,19 @@
       <a href="#faq"          class="text-sm font-medium transition-colors" style="color:rgba(255,255,255,0.55)" onmouseover="this.style.color='#4ade80'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">FAQ</a>
     </nav>
 
-    <div class="hidden md:flex">
+    <div class="hidden md:flex items-center gap-3">
+      <!-- Language switcher -->
+      <div class="relative" id="lang-switcher">
+        <button id="lang-btn" onclick="document.getElementById('lang-menu').classList.toggle('hidden')" class="flex items-center gap-1.5 text-xs font-semibold px-3 py-2 rounded-lg transition-colors" style="color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1)" onmouseover="this.style.borderColor='rgba(74,222,128,0.3)';this.style.color='rgba(255,255,255,0.8)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.color='rgba(255,255,255,0.5)'">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.1"/><ellipse cx="6" cy="6" rx="2.2" ry="5" stroke="currentColor" stroke-width="1.1"/><line x1="1" y1="6" x2="11" y2="6" stroke="currentColor" stroke-width="1.1"/></svg>
+          <span id="lang-current">EN</span>
+          <svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1.5 3l2.5 2.5L6.5 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="lang-menu" class="hidden absolute right-0 top-full mt-1.5 rounded-xl overflow-hidden" style="background:rgba(4,13,5,0.97);border:1px solid rgba(74,222,128,0.15);box-shadow:0 12px 32px rgba(0,0,0,0.4);min-width:90px;z-index:100">
+          <button onclick="setLang('EN')" class="lang-opt w-full text-left text-xs font-semibold px-4 py-2.5 transition-colors" style="color:rgba(255,255,255,0.75)" onmouseover="this.style.background='rgba(74,222,128,0.08)';this.style.color='#4ade80'" onmouseout="this.style.background='transparent';this.style.color='rgba(255,255,255,0.75)'">English</button>
+          <button onclick="setLang('FR')" class="lang-opt w-full text-left text-xs font-semibold px-4 py-2.5 transition-colors" style="color:rgba(255,255,255,0.75)" onmouseover="this.style.background='rgba(74,222,128,0.08)';this.style.color='#4ade80'" onmouseout="this.style.background='transparent';this.style.color='rgba(255,255,255,0.75)'">Français</button>
+        </div>
+      </div>
       <a href="#booking" class="glow-btn text-sm font-semibold px-5 py-2.5 rounded-xl">
         Book a 5-Min Call
       </a>
@@ -256,6 +290,11 @@
       <a href="#stories"      class="mobile-link text-sm font-medium" style="color:rgba(255,255,255,0.65)">Stories</a>
       <a href="#faq"          class="mobile-link text-sm font-medium" style="color:rgba(255,255,255,0.65)">FAQ</a>
       <a href="#booking"      class="mobile-link mt-1 glow-btn text-white text-center font-semibold px-5 py-3 rounded-xl">Book a 5-Min Call</a>
+      <div class="flex items-center gap-2 pt-1 border-t" style="border-color:rgba(74,222,128,0.08)">
+        <span class="text-[10px] font-semibold uppercase tracking-wider" style="color:rgba(255,255,255,0.3)">Language</span>
+        <button onclick="setLang('EN')" class="text-xs font-bold px-2.5 py-1 rounded-lg transition-colors" style="color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1)" id="mob-en">EN</button>
+        <button onclick="setLang('FR')" class="text-xs font-bold px-2.5 py-1 rounded-lg transition-colors" style="color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1)" id="mob-fr">FR</button>
+      </div>
     </nav>
   </div>
 </header>
@@ -338,7 +377,7 @@
     0%   { transform: translateY(0) scale(1);   opacity: 0; }
     5%   { opacity: 0.9; }
     90%  { opacity: 0.6; }
-    100% { transform: translateY(-115vh) scale(0.15); opacity: 0; }
+    100% { transform: translateY(-110vh) scale(0.15); opacity: 0; }
   }
 
   /* Ripple */
@@ -397,6 +436,9 @@
 </style>
 
 <section id="dark-hero">
+
+  <!-- ===== ANIMATION CONTAINER: clips all animated elements to hero bounds ===== -->
+  <div style="position:absolute;inset:0;overflow:hidden;z-index:0;pointer-events:none;">
 
   <!-- ===== CANVAS: all animated elements ===== -->
   <svg id="hero-canvas" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
@@ -501,6 +543,8 @@
   <div class="hero-orb" style="width:6px;height:6px;left:6%;bottom:-10px;background:radial-gradient(circle,rgba(187,247,208,0.85),rgba(187,247,208,0));box-shadow:0 0 8px rgba(187,247,208,0.5);animation-duration:9.5s;animation-delay:5s;"></div>
   <div class="hero-orb" style="width:11px;height:11px;left:42%;bottom:-10px;background:radial-gradient(circle,rgba(74,222,128,0.9),rgba(74,222,128,0));box-shadow:0 0 16px rgba(74,222,128,0.75);animation-duration:7.5s;animation-delay:6.3s;"></div>
   <div class="hero-orb" style="width:5px;height:5px;left:54%;bottom:-10px;background:radial-gradient(circle,rgba(255,255,255,0.9),rgba(255,255,255,0));box-shadow:0 0 6px rgba(255,255,255,0.5);animation-duration:10.5s;animation-delay:3s;"></div>
+
+  </div><!-- end animation container -->
 
   <!-- ===== TEXT CONTENT ===== -->
   <div class="max-w-6xl mx-auto px-6 relative z-10 w-full py-20">
@@ -623,13 +667,13 @@
         <div class="dark-notif absolute bottom-8 right-0 rounded-2xl px-4 py-3.5 float-2 min-w-[230px] z-20">
           <div class="flex items-center gap-3">
             <div class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style="background:rgba(74,222,128,0.2)">
-              <span class="text-xs font-bold" style="color:#4ade80">24</span>
+              <span class="text-xs font-bold" style="color:#4ade80">32</span>
             </div>
             <div class="flex-1 min-w-0">
-              <div class="text-xs font-bold text-white">Friday Prayer Night</div>
-              <div class="text-[10px] mt-0.5" style="color:rgba(255,255,255,0.45)">22 of 24 confirmed</div>
+              <div class="text-xs font-bold text-white">Community Outreach Event</div>
+              <div class="text-[10px] mt-0.5" style="color:rgba(255,255,255,0.45)">30 of 32 confirmed</div>
               <div class="w-full rounded-full h-1.5 mt-1.5" style="background:rgba(74,222,128,0.12)">
-                <div class="h-1.5 rounded-full" style="width:91%;background:linear-gradient(90deg,#4ade80,#86efac)"></div>
+                <div class="h-1.5 rounded-full" style="width:94%;background:linear-gradient(90deg,#4ade80,#86efac)"></div>
               </div>
             </div>
           </div>
@@ -675,13 +719,13 @@
     <!-- Narrative -->
     <div class="max-w-3xl mx-auto bg-white/[0.06] border border-white/[0.08] rounded-3xl p-8 md:p-10 mb-14 fade-up">
       <p class="text-white/75 text-lg leading-relaxed font-light mb-5">
-        Your new visitor from two Sundays ago — the one who filled out the welcome card — <strong class="text-white font-semibold">never heard back.</strong> Your volunteer meant to call. Life got in the way.
+        That first-time visitor who sat in the third row, filled in the welcome card, and waited — <strong class="text-white font-semibold">never received a single call.</strong> Not because your team didn't care. Because caring doesn't scale on its own.
       </p>
       <p class="text-white/75 text-lg leading-relaxed font-light mb-5">
-        Your 70-year-old deacon missed last Thursday's prayer meeting. No one noticed until Sunday. He thought the church had forgotten about him.
+        Your most faithful elder missed midweek service. By Sunday, he had already decided the community had moved on without him. <strong class="text-white font-semibold">Four days of silence cost you a pillar.</strong>
       </p>
       <p class="text-white/85 text-lg leading-relaxed font-semibold">
-        These are not administrative failures. These are pastoral failures — and they are happening in your church every single week.
+        This is the Silence Gap — and it opens in every church that relies on people to remember people. The solution is not to care more. It is to <em class="italic font-bold text-[#86efac]">systematise the caring.</em>
       </p>
     </div>
 
@@ -1776,6 +1820,25 @@ STRICT RULES:
   document.getElementById('close-modal').addEventListener('click', () => document.getElementById('success-modal').classList.add('hidden'));
   document.getElementById('modal-backdrop').addEventListener('click', () => document.getElementById('success-modal').classList.add('hidden'));
 
+  // Language switcher
+  function setLang(code) {
+    document.getElementById('lang-current').textContent = code;
+    document.getElementById('lang-menu').classList.add('hidden');
+    // Highlight active on mobile
+    ['mob-en','mob-fr'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) { el.style.color = 'rgba(255,255,255,0.5)'; el.style.borderColor = 'rgba(255,255,255,0.1)'; }
+    });
+    const mob = document.getElementById('mob-' + code.toLowerCase());
+    if (mob) { mob.style.color = '#4ade80'; mob.style.borderColor = 'rgba(74,222,128,0.4)'; }
+    // Future: swap i18n strings here
+  }
+  // Close lang dropdown on outside click
+  document.addEventListener('click', function(e) {
+    const sw = document.getElementById('lang-switcher');
+    if (sw && !sw.contains(e.target)) document.getElementById('lang-menu').classList.add('hidden');
+  });
+
   // Navbar shadow on scroll
   window.addEventListener('scroll', () => {
     document.getElementById('navbar').style.boxShadow = window.scrollY > 20 ? '0 2px 24px rgba(28,28,28,0.08)' : 'none';
@@ -1794,3 +1857,7 @@ STRICT RULES:
       hero.appendChild(ripple);
       ripple.addEventListener('animationend', () => ripple.remove());
     });
+  })();
+</script>
+</body>
+</html>
